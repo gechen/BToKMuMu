@@ -2,8 +2,8 @@ import FWCore.ParameterSet.Config as cms
 from btokmumu_2012_cfi import process
 
 
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(10) )
-#process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
+#process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(10) )
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 
 process.source = cms.Source("PoolSource",
                             fileNames = cms.untracked.vstring(

@@ -6,9 +6,7 @@ process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 
 process.source = cms.Source("PoolSource",
                             fileNames = cms.untracked.vstring(
-  #'file:/afs/cern.ch/user/g/gechen/gechen/work/BToKMuMu/Ana/RootFiles/MC_GENOnly/BToKMuMu_MC_OnlyGEN_8TeV.root',
-  'file:/afs/cern.ch/user/g/gechen/gechen/work/BToKMuMu/aachen/work/CMSSW_5_3_20/src/ana/BToKMuMu/python/BToKMuMu_MC_OnlyGEN_8TeV.root',
-    
+'root://xrootd.unl.edu//store/user/gechen/PYTHIA6_BuToJpsiK_GENOnly_8TeV/crab_BuToJpsiKMuMu_MC_GENOnly_8TeV/160529_220333/0000/BToJpsiK_MC_OnlyGEN_8TeV_1.root',
                             )
                         )
 #process.GlobalTag.globaltag = cms.string('GR_R_42_V25::All')r

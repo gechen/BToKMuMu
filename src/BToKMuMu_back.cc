@@ -71,7 +71,10 @@ Implementation:
 
 using namespace std;
 
+//
 // Constants
+//
+
 const int MUONMINUS_PDG_ID = 13;
 const int KPLUS_PDG_ID = 321;
 const int BPLUS_PDG_ID = 521;
@@ -98,7 +101,7 @@ struct HistArgs{
 };
 
 enum HistName{
-  h_events, 
+  h_events,      /* added */
   h_mupt,
   h_mueta,
   h_mumdcabs,
@@ -123,9 +126,11 @@ enum HistName{
 };
 
 // Global hist args
+
 HistArgs hist_args[kHistNameSize] = {
   // name, title, n_bins, x_min, x_max
-  {"h_events", "Processed Events", 1, 0, 1},      
+
+  {"h_events", "Processed Events", 1, 0, 1},      /* added */
   {"h_mupt", "Muon pT; [GeV]", 100, 0, 30},
   {"h_mueta", "Muon eta", 100, 0, 3},
   {"h_mumdcabs", "#mu^{-} DCA beam spot; DCA [cm]", 100, 0, 10},
@@ -152,184 +157,233 @@ HistArgs hist_args[kHistNameSize] = {
 // Define histograms
 TH1F *histos[kHistNameSize];
 
+//
 // class declaration
+//
+
 class BToKMuMu : public edm::EDAnalyzer {
 public:
-   explicit BToKMuMu(const edm::ParameterSet&);
-	~BToKMuMu();
-	static void fillDescriptions(edm::ConfigurationDescriptions& ); 
+  explicit BToKMuMu(const edm::ParameterSet&);
+  ~BToKMuMu();
+  
+  static void fillDescriptions(edm::ConfigurationDescriptions& );
+  
   
 private:
-   virtual void beginJob() ;
-	virtual void analyze(const edm::Event&, const edm::EventSetup&);
-	virtual void endJob() ;
-	virtual void beginRun(edm::Run const&, edm::EventSetup const&);
-	virtual void endRun(edm::Run const&, edm::EventSetup const&);
-	virtual void beginLuminosityBlock(edm::LuminosityBlock const&, edm::EventSetup const&);
-	virtual void endLuminosityBlock(edm::LuminosityBlock const&, edm::EventSetup const&);
-	
-	void buildBuToKMuMu(const edm::Event &);
-	
-	void computeLS (double, double, double, double, double, double, double,
-	                double, double, double, double, double, double, double,
-						 double, double, double, double, double*, double*);
-	void computeCosAlpha (double, double, double, double, double,
-	                      double, double, double, double, double,
-								 double, double, double, double, double, 
-								 double, double, double, double*, double*);
-	void computeCosAlpha2D(double, double, double, double, double,     
-	                       double, double, double, double, double,
-								  double, double, double, double, double, 
-								  double, double, double, double*, double*);
-	
-	void computeCtau(RefCountedKinematicTree, double &, double &);
-	double computeEta (double, double, double);
-	double computePhi (double, double, double);
-	double computeEtaPhiDistance (double, double, double, double, double, double);
-	void clearVariables();
-	
-	bool hasBeamSpot(const edm::Event&);
-	
-	bool hasGoodClosestApproachTracks (const reco::TransientTrack,
-	                                   const reco::TransientTrack,
-												  double&, double &, double &);
-	
-	bool hasGoodMuonDcaBs (const reco::TransientTrack, double &, double &);
-	bool hasGoodTrackDcaBs (const reco::TransientTrack, double &, double &);
-	bool hasGoodTrackDcaPoint (const reco::TransientTrack, const GlobalPoint,
-	                                 double, double &, double &);
-	bool hasGoodKChargedMass(RefCountedKinematicTree, double &);
-	bool hasGoodBuMass(RefCountedKinematicTree, double &);
-	bool hasGoodBuVertex(const reco::TrackRef, const reco::TrackRef, const reco::TrackRef,
-	                           double &, double &, RefCountedKinematicTree &);
-	bool hasGoodMuMuVertex (const reco::TransientTrack, const reco::TransientTrack,
-	                              reco::TransientTrack &, reco::TransientTrack &,
-									double &, double &, double &, double &, double &,
-									double &, double &, double &);
-	bool hasGoodKaonTrack(const edm::Event&, const pat::GenericParticle, double &);
-	bool hasPrimaryVertex(const edm::Event &);
-	
-	void hltReport(const edm::Event&);
-	
-	bool isGenKCharged(const reco::Candidate *);
-	bool isGenMuonP(const reco::Candidate *);
-	bool matchMuonTrack (const edm::Event&, const reco::TrackRef);
-	bool matchMuonTracks (const edm::Event&, const vector<reco::TrackRef>);
-	bool matchPrimaryVertexTracks ();
-	
-	void saveBuToKMuMu(RefCountedKinematicTree);
-	void saveBuVertex(RefCountedKinematicTree);
-	void saveBuCosAlpha(RefCountedKinematicTree);
-	void saveBuCosAlpha2D(RefCountedKinematicTree);       
-	void saveBuLsig(RefCountedKinematicTree);
-	void saveBuCtau(RefCountedKinematicTree);
-	void saveGenInfo(const edm::Event&);
-	void saveSoftMuonVariables(pat::Muon, pat::Muon, reco::TrackRef, reco::TrackRef);
-	void saveDimuVariables(double, double, double, double, double, double, double, 
-	                       double, double, double, double, double, double, double);
-	void saveMuonTriggerMatches(const pat::Muon, const pat::Muon);
-	void saveTruthMatch(const edm::Event& iEvent);
-	
-// ----------member data ---------------------------
-// --- begin input from python file ---
-	string OutputFileName_;
-	// particle properties
-	ParticleMass MuonMass_;
-	float MuonMassErr_;
-	ParticleMass KaonMass_;
-	float KaonMassErr_;
-	double BuMass_;
-	// labels
-	edm::InputTag GenParticlesLabel_;
-	edm::InputTag TriggerResultsLabel_;
-	edm::InputTag BeamSpotLabel_;
-	edm::InputTag VertexLabel_;
-	edm::InputTag MuonLabel_;
-	edm::InputTag TrackLabel_;
-	vector<string> TriggerNames_;
-	vector<string> LastFilterNames_;
-	// gen particle
-	bool   IsMonteCarlo_;
-	bool   KeepGENOnly_;
-	double TruthMatchMuonMaxR_;
-	double TruthMatchKaonMaxR_;
-	// pre-selection cuts
-	double MuonMinPt_; 
-	double MuonMaxEta_;
-	double MuonMaxDcaBs_;
-	double TrkMinPt_;
-	double TrkMinDcaSigBs_;
-	double TrkMaxR_;
-	double TrkMaxZ_;
-	double MuMuMaxDca_;
-	double MuMuMinVtxCl_;
-	double MuMuMinPt_;
-	double MuMuMinInvMass_;
-	double MuMuMaxInvMass_;
-	double MuMuMinLxySigmaBs_;
-	double MuMuMinCosAlphaBs_;
-	double KMinMass_;
-	double KMaxMass_;
-	double BMinVtxCl_;
-	double BMinMass_;
-	double BMaxMass_;
-// --- end input from python file ---
-	// Across the event
-	map<string, string> mapTriggerToLastFilter_;
-	reco::BeamSpot beamSpot_;
-	edm::ESHandle<MagneticField> bFieldHandle_;
-	reco::Vertex primaryVertex_;
-	// ---- Root Variables ----
-	TFile* fout_;
-	TTree* tree_;
-	
-	unsigned int run, event, lumiblock, nprivtx;
-	vector<string> *triggernames;
-	vector<int> *triggerprescales;
-	// dimuon
-	vector<double> *mumdcabs, *mumdcabserr, *mumpx, *mumpy, *mumpz;
-	vector<double> *mupdcabs, *mupdcabserr, *muppx, *muppy, *muppz;
-	vector<double> *mumutrkr, *mumutrkz , *mumudca;
-	vector<double> *mumuvtxcl, *mumulsbs, *mumulsbserr;
-	vector<double> *mumucosalphabs, *mumucosalphabserr;
-	vector<double> *mumumass, *mumumasserr;
-	// soft muon variables
-	vector<bool>   *mumisgoodmuon, *mupisgoodmuon ;
-	vector<int>    *mumnpixhits, *mupnpixhits, *mumnpixlayers, *mupnpixlayers;
-	vector<int>    *mumntrkhits, *mupntrkhits, *mumntrklayers, *mupntrklayers;
-	vector<double> *mumnormchi2, *mupnormchi2;
-	vector<int> *mumtrkqual, *muptrkqual;    /* added quality vars 2015-10-09 */
-	vector<double> *mumdxyvtx, *mupdxyvtx, *mumdzvtx, *mupdzvtx;
-	vector<string> *mumtriglastfilter, *muptriglastfilter;
-	vector<double> *mumpt, *muppt, *mumeta, *mupeta;
-	// Kaon track
-	vector<int>    *trkchg; // +1 for k+, -1 for k-
-	vector<double> *trkpx, *trkpy, *trkpz, *trkpt;
-	vector<double> *trkdcabs, *trkdcabserr;
-	// B+ and B-
-	int nb;
-	vector<int>    *bchg; // +1 for b+, -1 for b-
-	vector<double> *bpx, *bpxerr, *bpy, *bpyerr, *bpz, *bpzerr, *bmass, *bmasserr;
-	vector<double> *bvtxcl, *bvtxx, *bvtxxerr, *bvtxy, *bvtxyerr, *bvtxz, *bvtxzerr;
-	vector<double> *bcosalphabs, *bcosalphabserr, *blsbs, *blsbserr, *bctau, *bctauerr;
-	vector<double> *bcosalphabs2D, *bcosalphabs2Derr;           
-	// For MC
-	int    genbchg; // +1 for b+, -1 for b-
-	double genbpx, genbpy, genbpz;
-	int    gentrkchg;
-	double gentrkpx, gentrkpy, gentrkpz;
-	double genmumpx, genmumpy, genmumpz;
-	double genmuppx, genmuppy, genmuppz;
-	
-	string decname;
-	vector<bool> *istruemum, *istruemup, *istruetrk, *istruebu;
-	
-	TDatime t_begin_ , t_now_ ;   
-	int n_processed_, n_selected_; 
+  virtual void beginJob() ;
+  virtual void analyze(const edm::Event&, const edm::EventSetup&);
+  virtual void endJob() ;
+  
+  virtual void beginRun(edm::Run const&, edm::EventSetup const&);
+  virtual void endRun(edm::Run const&, edm::EventSetup const&);
+  virtual void beginLuminosityBlock(edm::LuminosityBlock const&,
+                                 edm::EventSetup const&);
+  virtual void endLuminosityBlock(edm::LuminosityBlock const&,
+                                 edm::EventSetup const&);
+  
+  void buildBuToKMuMu(const edm::Event &);
+
+  void computeLS (double, double, double, double, double, double, double,
+                  double, double, double, double, double, double, double,
+                  double, double, double, double, double*, double*);
+
+  void computeCosAlpha (double, double, double, double, double,
+                        double,
+                        double, double, double, double,
+                        double, double, double, double,
+                        double, double, double, double,
+                        double*, double*);
+
+  void computeCosAlpha2D(double, double, double, double, double,              /* added */
+			 double, double, double, double, double,
+			 double, double, double, double,
+			 double, double, double, double,
+			 double*, double*);
+  
+  void computeCtau(RefCountedKinematicTree, double &, double &);
+  double computeEta (double, double, double);
+  double computePhi (double, double, double);
+  double computeEtaPhiDistance (double, double, double, double, double, double);
+  void clearVariables();
+
+  bool hasBeamSpot(const edm::Event&);
+
+  bool hasGoodClosestApproachTracks (const reco::TransientTrack,
+                                 const reco::TransientTrack,
+                                 double&, double &, double &);
+
+  bool hasGoodMuonDcaBs (const reco::TransientTrack, double &, double &);
+  bool hasGoodTrackDcaBs (const reco::TransientTrack, double &, double &);
+  bool hasGoodTrackDcaPoint (const reco::TransientTrack, const GlobalPoint,
+                         double, double &, double &);
+
+  bool hasGoodKChargedMass(RefCountedKinematicTree, double &);
+
+  bool hasGoodBuMass(RefCountedKinematicTree, double &);
+
+  bool hasGoodBuVertex(const reco::TrackRef, const reco::TrackRef,
+                  const reco::TrackRef,
+                 double &, double &,
+                 RefCountedKinematicTree &);
+  
+  bool hasGoodMuMuVertex (const reco::TransientTrack, const reco::TransientTrack,
+                         reco::TransientTrack &, reco::TransientTrack &,
+                         double &, double &, double &, double &, double &,
+                         double &, double &, double &);
+
+  bool hasGoodKaonTrack(const edm::Event&, const pat::GenericParticle, double &);
+
+  bool hasPrimaryVertex(const edm::Event &);
+
+  void hltReport(const edm::Event&);
+
+  bool isGenKCharged(const reco::Candidate *);
+  bool isGenMuonP(const reco::Candidate *);
+  bool matchMuonTrack (const edm::Event&, const reco::TrackRef);
+  bool matchMuonTracks (const edm::Event&, const vector<reco::TrackRef>);
+  bool matchPrimaryVertexTracks ();
+ 
+
+  void saveBuToKMuMu(RefCountedKinematicTree);
+  void saveBuVertex(RefCountedKinematicTree);
+  void saveBuCosAlpha(RefCountedKinematicTree);
+  void saveBuCosAlpha2D(RefCountedKinematicTree);     /* added */  
+  void saveBuLsig(RefCountedKinematicTree);
+  void saveBuCtau(RefCountedKinematicTree);
+
+  void saveGenInfo(const edm::Event&);
+
+  void saveSoftMuonVariables(pat::Muon, pat::Muon, reco::TrackRef, reco::TrackRef);
+  void saveDimuVariables(double, double, double, double, double, double,
+                         double, double, double, double, double, double,
+                         double, double);
+  void saveMuonTriggerMatches(const pat::Muon, const pat::Muon);
+  void saveTruthMatch(const edm::Event& iEvent);
+
+  // ----------member data ---------------------------
+
+  // --- begin input from python file ---
+  string OutputFileName_;
+
+  // particle properties
+  ParticleMass MuonMass_;
+  float MuonMassErr_;
+  ParticleMass KaonMass_;
+  float KaonMassErr_;
+  double BuMass_;
+
+  // labels
+  edm::InputTag GenParticlesLabel_;
+  edm::InputTag TriggerResultsLabel_;
+  edm::InputTag BeamSpotLabel_;
+  edm::InputTag VertexLabel_;
+  edm::InputTag MuonLabel_;
+  edm::InputTag TrackLabel_;
+  vector<string> TriggerNames_;
+  vector<string> LastFilterNames_;
+
+
+  // gen particle
+  bool   IsMonteCarlo_;
+  bool   KeepGENOnly_;
+  double TruthMatchMuonMaxR_;
+  double TruthMatchKaonMaxR_;
+
+  // pre-selection cuts
+  double MuonMinPt_;
+  double MuonMaxEta_;
+  double MuonMaxDcaBs_;
+  double TrkMinPt_;
+  double TrkMinDcaSigBs_;
+  double TrkMaxR_;
+  double TrkMaxZ_;
+  double MuMuMaxDca_;
+  double MuMuMinVtxCl_;
+  double MuMuMinPt_;
+  double MuMuMinInvMass_;
+  double MuMuMaxInvMass_;
+  double MuMuMinLxySigmaBs_;
+  double MuMuMinCosAlphaBs_;
+  double KMinMass_;
+  double KMaxMass_;
+  double BMinVtxCl_;
+  double BMinMass_;
+  double BMaxMass_;
+
+
+  // --- end input from python file ---
+
+ 
+  // Across the event
+  map<string, string> mapTriggerToLastFilter_;
+  reco::BeamSpot beamSpot_;
+  edm::ESHandle<MagneticField> bFieldHandle_;
+  reco::Vertex primaryVertex_;
+
+  // ---- Root Variables ----
+  TFile* fout_;
+  TTree* tree_;
+  
+  unsigned int run, event, lumiblock, nprivtx;
+  vector<string> *triggernames;
+  vector<int> *triggerprescales;
+  
+  // dimuon
+  vector<double> *mumdcabs, *mumdcabserr, *mumpx, *mumpy, *mumpz;
+  vector<double> *mupdcabs, *mupdcabserr, *muppx, *muppy, *muppz;
+  vector<double> *mumutrkr, *mumutrkz , *mumudca;
+  vector<double> *mumuvtxcl, *mumulsbs, *mumulsbserr;
+  vector<double> *mumucosalphabs, *mumucosalphabserr;
+  vector<double> *mumumass, *mumumasserr;
+
+  // soft muon variables
+  vector<bool>   *mumisgoodmuon, *mupisgoodmuon ;
+  vector<int>    *mumnpixhits, *mupnpixhits, *mumnpixlayers, *mupnpixlayers;
+  vector<int>    *mumntrkhits, *mupntrkhits, *mumntrklayers, *mupntrklayers;
+  vector<double> *mumnormchi2, *mupnormchi2;
+  vector<double> *mumdxyvtx, *mupdxyvtx, *mumdzvtx, *mupdzvtx;
+  vector<string> *mumtriglastfilter, *muptriglastfilter;
+  vector<double> *mumpt, *muppt, *mumeta, *mupeta;
+  
+  // Kaon track
+  vector<int>    *trkchg; // +1 for k+, -1 for k-
+  vector<double> *trkpx, *trkpy, *trkpz, *trkpt;
+  vector<double> *trkdcabs, *trkdcabserr;
+
+  // B+ and B-
+  int nb;
+  vector<int>    *bchg; // +1 for b+, -1 for b-
+  vector<double> *bpx, *bpxerr, *bpy, *bpyerr, *bpz, *bpzerr, *bmass, *bmasserr;
+  vector<double> *bvtxcl, *bvtxx, *bvtxxerr, *bvtxy, *bvtxyerr, *bvtxz, *bvtxzerr;
+  vector<double> *bcosalphabs, *bcosalphabserr, *blsbs, *blsbserr, *bctau, *bctauerr;
+  vector<double> *bcosalphabs2D, *bcosalphabs2Derr;                                     /* added */
+  
+  // For MC
+  int    genbchg; // +1 for b+, -1 for b-
+  double genbpx, genbpy, genbpz;
+
+  int    gentrkchg;
+  double gentrkpx, gentrkpy, gentrkpz;
+  double genmumpx, genmumpy, genmumpz;
+  double genmuppx, genmuppy, genmuppz;
+  
+  string decname;
+
+  vector<bool> *istruemum, *istruemup, *istruetrk, *istruebu;
+
+  TDatime t_begin_ , t_now_ ;    /* added */
+  int n_processed_, n_selected_; 
+  
 };
+
+//
 // constants, enums and typedefs
 //
+
+//
 // static data member definitions
+//
+
 //
 // constructors and destructor
 //
@@ -377,7 +431,7 @@ BToKMuMu::BToKMuMu(const edm::ParameterSet& iConfig):
   MuMuMinLxySigmaBs_(iConfig.getUntrackedParameter<double>("MuMuMinLxySigmaBs")),
   MuMuMinCosAlphaBs_(iConfig.getUntrackedParameter<double>("MuMuMinCosAlphaBs")),
 
-  //KMinMass_(iConfig.getUntrackedParameter<double>("KMinMass")),
+ // KMinMass_(iConfig.getUntrackedParameter<double>("KMinMass")),
   //KMaxMass_(iConfig.getUntrackedParameter<double>("KMaxMass")),
   BMinVtxCl_(iConfig.getUntrackedParameter<double>("BMinVtxCl")),
   BMinMass_(iConfig.getUntrackedParameter<double>("BMinMass")),
@@ -393,9 +447,7 @@ BToKMuMu::BToKMuMu(const edm::ParameterSet& iConfig):
   mumisgoodmuon(0), mupisgoodmuon(0),
   mumnpixhits(0), mupnpixhits(0), mumnpixlayers(0), mupnpixlayers(0),
   mumntrkhits(0), mupntrkhits(0), mumntrklayers(0), mupntrklayers(0),
-  mumnormchi2(0), mupnormchi2(0), 
-  mumtrkqual(0), muptrkqual(0),         /* added on quality vars 2015-10-09 */
-  mumdxyvtx(0), mupdxyvtx(0),
+  mumnormchi2(0), mupnormchi2(0), mumdxyvtx(0), mupdxyvtx(0),
   mumdzvtx(0), mupdzvtx(0), mumtriglastfilter(0), muptriglastfilter(0),
   mumpt(0), muppt(0), mumeta(0), mupeta(0),
 
@@ -419,9 +471,11 @@ BToKMuMu::BToKMuMu(const edm::ParameterSet& iConfig):
   istruemum(0), istruemup(0),  istruetrk(0), istruebu(0)
 {
   //now do what ever initialization is needed
+  
   assert(TriggerNames_.size() == LastFilterNames_.size());
   for (size_t i = 0; i < TriggerNames_.size(); ++i)
-    mapTriggerToLastFilter_[TriggerNames_[i]] = LastFilterNames_[i]; 
+    mapTriggerToLastFilter_[TriggerNames_[i]] = LastFilterNames_[i];
+  
 }
 
 
@@ -541,8 +595,6 @@ BToKMuMu::beginJob()
   tree_->Branch("mupntrklayers", &mupntrklayers);
   tree_->Branch("mumnormchi2", &mumnormchi2);
   tree_->Branch("mupnormchi2", &mupnormchi2);
-  tree_->Branch("mumtrkqual", &mumtrkqual);  /* added quality vars 2015-10-09 */
-  tree_->Branch("muptrkqual", &muptrkqual);  /* added quality vars 2015-10-09 */
   tree_->Branch("mumdxyvtx", &mumdxyvtx);
   tree_->Branch("mupdxyvtx", &mupdxyvtx);
   tree_->Branch("mumdzvtx", &mumdzvtx);
@@ -695,9 +747,7 @@ BToKMuMu::clearVariables(){
   mupnpixlayers->clear();
   mumntrkhits->clear(); mupntrkhits->clear(); mumntrklayers->clear();
   mupntrklayers->clear();
-  mumnormchi2->clear(); mupnormchi2->clear(); 
-  mumtrkqual->clear(); muptrkqual->clear();   /* added on 2015-10-09 */
-  mumdxyvtx->clear(); mupdxyvtx->clear();
+  mumnormchi2->clear(); mupnormchi2->clear(); mumdxyvtx->clear(); mupdxyvtx->clear();
   mumdzvtx->clear(); mupdzvtx->clear(); mumtriglastfilter->clear();
   muptriglastfilter->clear();
   mumpt->clear(); muppt->clear();
@@ -837,7 +887,8 @@ BToKMuMu::buildBuToKMuMu(const edm::Event& iEvent)
   double MuMuCosAlphaBS, MuMuCosAlphaBSErr;
   //double K_mass
   double kaon_trk_pt, b_vtx_chisq, b_vtx_cl, b_mass;
-  double DCAKaonTrkBS, DCAKaonTrkBSErr;                      
+  //double DCAKstTrkBS, DCAKstTrkBSErr;               
+  double DCAKaonTrkBS, DCAKaonTrkBSErr;                      /* added */
   RefCountedKinematicTree vertexFitTree;
 
   // ---------------------------------
@@ -926,9 +977,15 @@ BToKMuMu::buildBuToKMuMu(const edm::Event& iEvent)
          // compute track DCA to beam spot
          reco::TrackRef kaonTrack = iTrack->track();
          const reco::TransientTrack theTrackTT(kaonTrack, &(*bFieldHandle_));
-		  passed = hasGoodTrackDcaBs(theTrackTT, DCAKaonTrkBS, DCAKaonTrkBSErr);        
-		  histos[h_trkdcasigbs]->Fill(DCAKaonTrkBS/DCAKaonTrkBSErr);
-		  if (!passed) continue;
+        /* passed = hasGoodTrackDcaBs(theTrackTT, DCAKstTrkBS, DCAKstTrkBSErr);
+         histos[h_trkdcasigbs]->Fill(DCAKstTrkBS/DCAKstTrkBSErr);
+         if (!passed) continue;
+        */
+	 passed = hasGoodTrackDcaBs(theTrackTT, DCAKaonTrkBS, DCAKaonTrkBSErr);          /* added */
+	 histos[h_trkdcasigbs]->Fill(DCAKaonTrkBS/DCAKaonTrkBSErr);
+	 if (!passed) continue;
+
+
 
          passed = hasGoodBuVertex(muTrackm, muTrackp, 
                                  kaonTrack, b_vtx_chisq, b_vtx_cl,
@@ -966,7 +1023,7 @@ BToKMuMu::buildBuToKMuMu(const edm::Event& iEvent)
          saveBuToKMuMu(vertexFitTree);
          saveBuVertex(vertexFitTree);
          saveBuCosAlpha(vertexFitTree);
-			saveBuCosAlpha2D(vertexFitTree);        
+	 saveBuCosAlpha2D(vertexFitTree);        /* added */
          saveBuLsig(vertexFitTree);
          saveBuCtau(vertexFitTree);
 
@@ -1607,6 +1664,10 @@ double
 BToKMuMu::computeEta (double Px, double Py, double Pz)
 {
   double P = sqrt(Px*Px + Py*Py + Pz*Pz);
+
+  // cout << "\n@@@ Px = " << Px << "\t" << "Py = " << Py << "\t" << "Pz = " << Pz << endl;
+  // cout << "\n@@@ P = " << P << endl;
+
   return 0.5*log((P + Pz) / (P - Pz));
 }
 
@@ -1616,6 +1677,9 @@ BToKMuMu::computePhi (double Px, double Py, double Pz)
   double phi = atan(Py / Px);
   if (Px < 0 && Py < 0) phi = phi - PI;
   if (Px < 0 && Py > 0) phi = phi + PI;
+
+  // cout << "\n@@@ phi = " << phi << endl;
+
   return phi;
 }
 
@@ -1627,6 +1691,9 @@ BToKMuMu::computeEtaPhiDistance (double Px1, double Py1, double Pz1,
   double eta1 = computeEta (Px1,Py1,Pz1);
   double phi2 = computePhi (Px2,Py2,Pz2);
   double eta2 = computeEta (Px2,Py2,Pz2);
+
+  // cout << "\n@@@ phi1 = " << phi1 << "\t" << "eta1 = " << eta1 << "\t" << "phi2 = " << phi2 << "\t" << "eta2 = " << eta2 << endl; 
+
   return sqrt((eta1-eta2) * (eta1-eta2) + (phi1-phi2) * (phi1-phi2));
 }
 
@@ -1773,9 +1840,6 @@ BToKMuMu::saveSoftMuonVariables(pat::Muon iMuonM, pat::Muon iMuonP,
   mumnormchi2->push_back(muTrackm->normalizedChi2());
   mupnormchi2->push_back(muTrackp->normalizedChi2());
 
-  mumtrkqual->push_back(muTrackm->quality(reco::TrackBase::highPurity)); /*added on 2015-10-09 */
-  muptrkqual->push_back(muTrackp->quality(reco::TrackBase::highPurity)); /*added on 2015-10-09 */
-  
   mumdxyvtx->push_back(muTrackm->dxy(primaryVertex_.position()));
   mupdxyvtx->push_back(muTrackp->dxy(primaryVertex_.position()));
         
@@ -1856,6 +1920,20 @@ BToKMuMu::saveTruthMatch(const edm::Event& iEvent){
     deltaEtaPhi = computeEtaPhiDistance(genmumpx, genmumpy, genmumpz,
                                         mumpx->at(i), mumpy->at(i), mumpz->at(i));
 
+    /*
+    cout << "\n@@@ deltaEtaPhi(mu-) = " << deltaEtaPhi << endl;
+
+    cout << "\n printing GEN values -----> " << endl;
+    cout << "genmumpx = " << genmumpx << endl;
+    cout << "genmumpy = " << genmumpy << endl;
+    cout << "genmumpz = " << genmumpz << endl;
+
+    cout << "\n printing RECO values -----> " << endl;
+    cout << "mumpx = " << mumpx->at(i) << endl;
+    cout << "mumpy = " << mumpy->at(i) << endl;
+    cout << "mumpz = " << mumpz->at(i) << endl;
+    */
+
     if (deltaEtaPhi < TruthMatchMuonMaxR_) {
       istruemum->push_back(true);
     } else {
@@ -1866,6 +1944,8 @@ BToKMuMu::saveTruthMatch(const edm::Event& iEvent){
     deltaEtaPhi = computeEtaPhiDistance(genmuppx, genmuppy, genmuppz,
                                         muppx->at(i), muppy->at(i), muppz->at(i));
 
+    // cout << "\n@@@ deltaEtaPhi(mu+) = " << deltaEtaPhi << endl;
+  
     if (deltaEtaPhi < TruthMatchMuonMaxR_) {
       istruemup->push_back(true);
     }
@@ -1876,6 +1956,8 @@ BToKMuMu::saveTruthMatch(const edm::Event& iEvent){
 	 // truth match with Kaon track
     deltaEtaPhi = computeEtaPhiDistance(gentrkpx, gentrkpy, gentrkpz,
                                         trkpx->at(i), trkpy->at(i), trkpz->at(i));
+
+    // cout << "\n@@@ deltaEtaPhi(Kaon) = " << deltaEtaPhi << endl;
 
     if (deltaEtaPhi < TruthMatchKaonMaxR_){
       istruetrk->push_back(true);
@@ -1891,6 +1973,13 @@ BToKMuMu::saveTruthMatch(const edm::Event& iEvent){
     } else {
       istruebu->push_back(false);
     }
+
+    // cout << "istruemum = " << istruemum->at(i) << endl;
+    // cout << "istruemup = " << istruemup->at(i) << endl;
+    // cout << "istruetrk = " << istruetrk->at(i) << endl;
+    // cout << "istruebu  = " << istruebu->at(i)  << endl;
+
+
 
   }
 }

@@ -2,14 +2,13 @@ import FWCore.ParameterSet.Config as cms
 
 #source = cms.Source("EmptySource")
 
-from Configuration.Generator.PythiaUEZ2Settings_cfi import *
+from Configuration.Generator.PythiaUEZ2starSettings_cfi import *
 
 generator = cms.EDFilter(
     "Pythia6GeneratorFilter",
-    comEnergy = cms.double(7000.0),
-    #crossSection = cms.untracked.double(48400000000.),
-    crossSection = cms.untracked.double(49118161.),
-    filterEfficiency = cms.untracked.double(1.4e-04),
+    comEnergy = cms.double(8000.0),
+    crossSection = cms.untracked.double(2978915.),
+    filterEfficiency = cms.untracked.double(1.59e-4),
     pythiaHepMCVerbosity = cms.untracked.bool(False),
     maxEventsToPrint = cms.untracked.int32(0),
     pythiaPylistVerbosity = cms.untracked.int32(0),
@@ -40,6 +39,7 @@ generator = cms.EDFilter(
     )
     )
 
+
 bfilter = cms.EDFilter(
         "PythiaFilter",
         MaxEta = cms.untracked.double(9999.),
@@ -49,33 +49,32 @@ bfilter = cms.EDFilter(
 
 psi2sfilter = cms.EDFilter(
         "PythiaDauVFilter",
-        verbose         = cms.untracked.int32(0),
-        NumberDaughters = cms.untracked.int32(2),
-        MotherID        = cms.untracked.int32(521),
-        ParticleID      = cms.untracked.int32(100443),
+	verbose         = cms.untracked.int32(0), 
+	NumberDaughters = cms.untracked.int32(2), 
+	MotherID        = cms.untracked.int32(521),  
+	ParticleID      = cms.untracked.int32(100443),  
         DaughterIDs     = cms.untracked.vint32(13, -13),
-        MinPt           = cms.untracked.vdouble(2.8, 2.8),
-        MinEta          = cms.untracked.vdouble(-2.5, -2.5),
-        MaxEta          = cms.untracked.vdouble( 2.5,  2.5)
+	MinPt           = cms.untracked.vdouble(-1., -1.), 
+	MinEta          = cms.untracked.vdouble(-9999., -9999.), 
+	MaxEta          = cms.untracked.vdouble( 9999,   9999)
         )
 
 kfilter = cms.EDFilter(
         "PythiaDauVFilter",
-        verbose         = cms.untracked.int32(0),
-        NumberDaughters = cms.untracked.int32(2),
-        MotherID        = cms.untracked.int32(0),
-        ParticleID      = cms.untracked.int32(521),
+	verbose         = cms.untracked.int32(0), 
+	NumberDaughters = cms.untracked.int32(2), 
+	MotherID        = cms.untracked.int32(0),  
+	ParticleID      = cms.untracked.int32(521),  
         DaughterIDs     = cms.untracked.vint32(100443, 321),
-        MinPt           = cms.untracked.vdouble(0., 0.4),
-        MinEta          = cms.untracked.vdouble(-99., -2.5),
-        MaxEta          = cms.untracked.vdouble(99.,   2.5)
+	MinPt           = cms.untracked.vdouble(0., 0.), 
+	MinEta          = cms.untracked.vdouble(-99., -9999.), 
+	MaxEta          = cms.untracked.vdouble(99.,   9999.)
         )
-
 configurationMetadata = cms.untracked.PSet(
     version = cms.untracked.string('$Revision: 1.1 $'),
     name = cms.untracked.string
-    ('$Source: /local/projects/CMSSW/rep/CMSSW/Configuration/GenProduction/python/SevenTeV/PYTHIA6_BuToPsi2SK_TuneZ2_7TeV_cff.py,v $'),
-    annotation = cms.untracked.string('B+ -> Psi(2S) K+ -> mu+ mu- K+ at 7TeV')
+    ('$Source: /local/projects/CMSSW/rep/CMSSW/Configuration/GenProduction/python/EightTeV/PYTHIA6_BuToPsi2SK_TuneZ2star_8TeV_cff.py,v $'),
+    annotation = cms.untracked.string('B+ -> Psi(2S) K+ at 8TeV')
     )
 
 ProductionFilterSequence = cms.Sequence(generator*bfilter*psi2sfilter*kfilter)

@@ -53,7 +53,7 @@ psi2sfilter = cms.EDFilter(
 	MotherID        = cms.untracked.int32(521),  
 	ParticleID      = cms.untracked.int32(100443),  
         DaughterIDs     = cms.untracked.vint32(13, -13),
-	MinPt           = cms.untracked.vdouble(3.5, 3.5), 
+	MinPt           = cms.untracked.vdouble(2.8, 2.8), 
 	MinEta          = cms.untracked.vdouble(-2.5, -2.5), 
 	MaxEta          = cms.untracked.vdouble( 2.5,  2.5)
         )

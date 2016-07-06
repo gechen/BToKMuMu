@@ -6,8 +6,11 @@ process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 
 process.source = cms.Source("PoolSource",
                             fileNames = cms.untracked.vstring(
-  #'file:/afs/cern.ch/user/g/gechen/gechen/work/BToKMuMu/Ana/RootFiles/MC_GENOnly/BToKMuMu_MC_OnlyGEN_8TeV.root',
-  'file:/afs/cern.ch/user/g/gechen/gechen/work/BToKMuMu/aachen/work/CMSSW_5_3_20/src/ana/BToKMuMu/python/BToKMuMu_MC_OnlyGEN_8TeV.root',
+  #'file:/afs/cern.ch/user/g/gechen/gechen/work/BToKMuMu/Ana/RootFiles/MC_GENOnly/BToKMuMu_MC_OnlyGEN_8TeV_9.root',
+  'file:/afs/cern.ch/user/g/gechen/gechen/work/BToKMuMu/Ana/RootFiles/MC_GENOnly/BToJpsiK_MC_OnlyGEN_8TeV_70.root',
+  'file:/afs/cern.ch/user/g/gechen/gechen/work/BToKMuMu/Ana/RootFiles/MC_GENOnly/BToJpsiK_MC_OnlyGEN_8TeV_72.root',
+  'file:/afs/cern.ch/user/g/gechen/gechen/work/BToKMuMu/Ana/RootFiles/MC_GENOnly/BToJpsiK_MC_OnlyGEN_8TeV_3.root',
+  'file:/afs/cern.ch/user/g/gechen/gechen/work/BToKMuMu/Ana/RootFiles/MC_GENOnly/BToJpsiK_MC_OnlyGEN_8TeV_4.root',
     
                             )
                         )

@@ -2,7 +2,7 @@
 # using: 
 # Revision: 1.381.2.28 
 # Source: /local/reps/CMSSW/CMSSW/Configuration/PyReleaseValidation/python/ConfigBuilder.py,v 
-# with command line options: ana/BToKMuMu/python/PYTHIA6_Bu2MuMuK_TuneZ2star_8TeV_GEN_cff.py --step GEN --beamspot Realistic8TeVCollision --conditions START53_LV6A1::All --pileup NoPileUp --datamix NODATAMIXER --eventcontent RAWSIM --datatier GEN --no_exec -n 10 --fileout BToKMuMu_MC_OnlyGEN_8TeV.root --python_filename PYTHIA6_Bu2MuMuK_TuneZ2star_8TeV_GENOnly.py
+# with command line options: ana/BToKMuMu/python/PYTHIA6_BuJpsiK_TuneZ2star_8TeV_GEN_cff.py --step GEN --beamspot Realistic8TeVCollision --conditions START53_LV6A1::All --pileup NoPileUp --datamix NODATAMIXER --eventcontent RAWSIM --datatier GEN --no_exec -n 5000000 --fileout BToJpsiK_MC_OnlyGEN_8TeV.root
 import FWCore.ParameterSet.Config as cms
 
 process = cms.Process('GEN')
@@ -22,7 +22,7 @@ process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(10)
+    input = cms.untracked.int32(50)
 )
 
 # Input source
@@ -35,8 +35,8 @@ process.options = cms.untracked.PSet(
 # Production Info
 process.configurationMetadata = cms.untracked.PSet(
     version = cms.untracked.string('$Revision: 1.1 $'),
-    annotation = cms.untracked.string('B+ -> mu+ mu- K+ at 8TeV'),
-    name = cms.untracked.string('$Source: /local/reps/CMSSW/CMSSW/Configuration/GenProduction/python/EightTeV/PYTHIA6_Bu2MuMuK_TuneZ2star_8TeV_cff.py,v $')
+    annotation = cms.untracked.string('B+ -> Jpsi K+ at 8TeV'),
+    name = cms.untracked.string('$Source: /local/reps/CMSSW/CMSSW/Configuration/GenProduction/python/EightTeV/PYTHIA6_BuJpsiK_TuneZ2star_8TeV_cff.py,v $')
 )
 
 # Output definition
@@ -45,7 +45,7 @@ process.RAWSIMoutput = cms.OutputModule("PoolOutputModule",
     splitLevel = cms.untracked.int32(0),
     eventAutoFlushCompressedSize = cms.untracked.int32(5242880),
     outputCommands = process.RAWSIMEventContent.outputCommands,
-    fileName = cms.untracked.string('BToKMuMu_MC_OnlyGEN_8TeV.root'),
+    fileName = cms.untracked.string('BToJpsiK_MC_OnlyGEN_8TeV.root'),
     dataset = cms.untracked.PSet(
         filterName = cms.untracked.string(''),
         dataTier = cms.untracked.string('GEN')
@@ -61,15 +61,16 @@ process.RAWSIMoutput = cms.OutputModule("PoolOutputModule",
 process.genstepfilter.triggerConditions=cms.vstring("generation_step")
 from Configuration.AlCa.GlobalTag import GlobalTag
 #process.GlobalTag = GlobalTag(process.GlobalTag, 'START53_LV6A1::All', '')
-process.GlobalTag = GlobalTag(process.GlobalTag, 'START53_V19F::All', '') ## 2016-05-27
+process.GlobalTag = GlobalTag(process.GlobalTag, 'START53_V19F::All', '')
 
-process.decayfilter = cms.EDFilter("PythiaDauVFilter",
-    MinPt = cms.untracked.vdouble(-1.0, 0, 0),
-    ParticleID = cms.untracked.int32(521),
-    MaxEta = cms.untracked.vdouble(9999.0, 9999, 9999),
-    MinEta = cms.untracked.vdouble(-9999.0, -9999, -9999),
-    DaughterIDs = cms.untracked.vint32(321, -13, 13),
-    NumberDaughters = cms.untracked.int32(3),
+process.jpsifilter = cms.EDFilter("PythiaDauVFilter",
+    MotherID = cms.untracked.int32(521),
+    MinPt = cms.untracked.vdouble(-1.0, 0.0),
+    ParticleID = cms.untracked.int32(443),
+    MaxEta = cms.untracked.vdouble(9999.0, 9999.0),
+    MinEta = cms.untracked.vdouble(-9999.0, -9999.0),
+    DaughterIDs = cms.untracked.vint32(13, -13),
+    NumberDaughters = cms.untracked.int32(2),
     verbose = cms.untracked.int32(0)
 )
 
@@ -87,7 +88,7 @@ process.generator = cms.EDFilter("Pythia6GeneratorFilter",
             use_default_decay = cms.untracked.bool(False),
             decay_table = cms.FileInPath('GeneratorInterface/ExternalDecays/data/DECAY_NOLONGLIFE.DEC'),
             particle_property_file = cms.FileInPath('GeneratorInterface/ExternalDecays/data/evt.pdl'),
-            user_decay_file = cms.FileInPath('GeneratorInterface/ExternalDecays/data/Bu_mumuK.dec'),
+            user_decay_file = cms.FileInPath('GeneratorInterface/ExternalDecays/data/Bu_JpsiK.dec'),
             list_forced_decays = cms.vstring('MyB+', 
                 'MyB-'),
             operates_on_particles = cms.vint32(0)
@@ -95,10 +96,10 @@ process.generator = cms.EDFilter("Pythia6GeneratorFilter",
         parameterSets = cms.vstring('EvtGen')
     ),
     pythiaPylistVerbosity = cms.untracked.int32(0),
-    filterEfficiency = cms.untracked.double(0.003),
+    filterEfficiency = cms.untracked.double(0.000159),
     pythiaHepMCVerbosity = cms.untracked.bool(False),
     comEnergy = cms.double(8000.0),
-    crossSection = cms.untracked.double(48440000000.0),
+    crossSection = cms.untracked.double(2978915.0),
     maxEventsToPrint = cms.untracked.int32(0),
     PythiaParameters = cms.PSet(
         pythiaUESettings = cms.vstring('MSTU(21)=1     ! Check on possible errors during program execution', 
@@ -129,7 +130,19 @@ process.generator = cms.EDFilter("Pythia6GeneratorFilter",
 )
 
 
-process.ProductionFilterSequence = cms.Sequence(process.generator+process.bfilter+process.decayfilter)
+process.kfilter = cms.EDFilter("PythiaDauVFilter",
+    MotherID = cms.untracked.int32(0),
+    MinPt = cms.untracked.vdouble(0.0, 0.0),
+    ParticleID = cms.untracked.int32(521),
+    MaxEta = cms.untracked.vdouble(99.0, 9999.0),
+    MinEta = cms.untracked.vdouble(-99.0, -9999.0),
+    DaughterIDs = cms.untracked.vint32(443, 321),
+    NumberDaughters = cms.untracked.int32(2),
+    verbose = cms.untracked.int32(0)
+)
+
+
+process.ProductionFilterSequence = cms.Sequence(process.generator+process.bfilter+process.jpsifilter+process.kfilter)
 
 # Path and EndPath definitions
 process.generation_step = cms.Path(process.pgen)
