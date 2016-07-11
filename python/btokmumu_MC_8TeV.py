@@ -1,8 +1,8 @@
 import FWCore.ParameterSet.Config as cms
 from btokmumu_2012_cfi import process
 
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(10) )
-#process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
+#process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(10) )
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 
 process.source = cms.Source("PoolSource",
                             fileNames = cms.untracked.vstring(
@@ -11,6 +11,7 @@ process.source = cms.Source("PoolSource",
 #'root://xrootd.unl.edu//store/mc/Summer12DR53X/BuToMuMuK_MuFilterLoose_TuneZ2star_8TeV-pythia6/AODSIM/PU_RD2_START53_V19F-v1/00000/C05863CD-71A9-E411-B86F-002590DB9262.root',
 #'root://xrootd.unl.edu//store/mc/Summer12DR53X/BuToMuMuK_MuFilterLoose_TuneZ2star_8TeV-pythia6/AODSIM/PU_RD2_START53_V19F-v1/00000/2C4C5D3F-65A9-E411-A977-002590DB924E.root',
 'root://xrootd.unl.edu//store/mc/Summer12_DR53X/Bu2MuMuK_TuneZ2star_8TeV_Pythia6/AODSIM/PU_RD2_START53_V19F-v1/00000/000771A0-9408-E411-94C0-002590DB92A8.root',
+#'/store/mc/Summer12DR53X/BuToMuMuK_MuFilterLoose_TuneZ2star_8TeV-pythia6/AODSIM/PU_RD2_START53_V19F-v1/00000/2C4C5D3F-65A9-E411-A977-002590DB924E.root',
 #'root://xrootd.unl.edu//store/mc/Summer12_DR53X/Bu2MuMuK_TuneZ2star_8TeV_Pythia6/AODSIM/PU_RD2_START53_V19F-v1/00000/0021569C-5709-E411-912B-003048D3739A.root'
 #'root://xrootd.unl.edu//store/mc/Summer12_DR53X/Bu2MuMuK_TuneZ2star_8TeV_Pythia6/AODSIM/PU_RD2_START53_V19F-v1/00000/000771A0-9408-E411-94C0-002590DB92A8.root',
 #'root://eoscms.cern.ch//store/mc/Summer12_DR53X/Bu2MuMuK_TuneZ2star_8TeV_Pythia6/AODSIM/PU_RD2_START53_V19F-v1/00000/000771A0-9408-E411-94C0-002590DB92A8.root',
