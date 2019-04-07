@@ -1,0 +1,173 @@
+--- MCB2KMuMu.C	2016-06-22 00:07:57.000000001 +0200
++++ MCB2KMuMu_GEN.C	2016-04-23 22:14:07.000000001 +0200
+@@ -60,17 +60,8 @@
+    Long64_t nentries = fChain->GetEntriesFast();
+    cout<<nentries<<endl;
+ 	
+-//	TFile *newfile = new TFile("./MC_Signal_8TeV_v4_cut0+HLT+Q+B2+resonance-1+OPT+Anti3_NoGEN.root","recreate");
+ 
+-//	TFile *newfile = new TFile("./MC_Kst0MuMu_8TeV_v4_cut0+HLT+Q+B1+resonance-1+OPT.root","recreate");
+-//	TFile *newfile = new TFile("./MC_JpsiX_8TeV_v4_cut0+HLT+Q+B2+resonance-1.root","recreate");
+-//	TFile *newfile = new TFile("./MC_Psi2SK_8TeV_v4_cut0+HLT+Q+B2+resonance-1.root","recreate");
+-//	TFile *newfile = new TFile("./MC_JpsiK_8TeV_v4_cut0+HLT+Q+B2+resonance-1.root","recreate");
+-//	TFile *newfile = new TFile("./MC_Signal_8TeV_v4_cut0+HLT+Q+B2+resonance-1_NoGEN.root","recreate");
+-	
+-//	TFile *newfile = new TFile("./Data_2012A_8TeV_v5_cut0+HLT+B2+resonance-1+OPT+Anti3.root","recreate");
+-//	TFile *newfile = new TFile("./Data_2012A_8TeV_v4_cut0+HLT+Q+B2+resonance-1+OPT+Anti3.root","recreate");
+-	TFile *newfile = new TFile("./Data_2012A_8TeV_v8_cut0+HLT+Q+B2+resonance-1+OPT+Anti3.root","recreate");
++	TFile *newfile = new TFile("./MC_Signal_8TeV_v4_cut0+HLT+Q+B2+resonance-1+OPT+Anti3.root","recreate");
+ 
+ 	TTree *tree_ = fChain->CloneTree(0);
+ 
+@@ -84,27 +75,27 @@
+ 		GetEntry(jentry);
+ 		if (Q2 == -999) {
+ 			ClearEvent();
+-		//	tree_->Fill();
+-		//	gen++;
++			tree_->Fill();
++			gen++;
+ 			continue;
+ 		}
+ 		else {
+ 			if (Triggers != 1) {
+-			//	ClearEvent();
+-			//	tree_->Fill();
++				ClearEvent();
++				tree_->Fill();
+ 				continue;
+ 			}
+ 			q0+=1;
+ /////////////////////////// quality cuts   	////////////////////////	
+ 		if (B_4vec->Pt() < 8.0) {
+-		//	ClearEvent();
+-		//	tree_->Fill();
++			ClearEvent();
++			tree_->Fill();
+ 			continue;
+ 		}
+ 		q1+=1;
+ 		if (fabs(B_4vec->Eta()) > 2.2) {
+-		//	ClearEvent();
+-		//	tree_->Fill();	
++			ClearEvent();
++			tree_->Fill();	
+ 			continue;
+ 		}
+ 		q2+=1;
+@@ -116,67 +107,65 @@
+ */		q3+=1;
+ 	//	if (Bmass > 5.56 || Bmass <5.0) {
+ 		if (Bmass > 5.60 || Bmass <5.10) {
+-		//	ClearEvent();
+-		//	tree_->Fill();
++			ClearEvent();
++			tree_->Fill();
+ 			continue;
+ 		}
+ 		q4+=1;
+ /////////////////////////// resonance cuts   	////////////////////////	
+ 		if (Mumumass > 3.096916-5. *Mumumasserr && Mumumass < 3.096916+3. *Mumumasserr) {
+-		//	ClearEvent();
+-		//	tree_->Fill();
++			ClearEvent();
++			tree_->Fill();
+ 			continue;
+ 		}
+ 		r1+=1;
+ 		if (Mumumass > 3.686109-3. *Mumumasserr && Mumumass < 3.686109+3. *Mumumasserr) {
+-		//	ClearEvent();
+-		//	tree_->Fill();
++			ClearEvent();
++			tree_->Fill();
+ 			continue;
+ 		}
+ 		r2+=1;
+ /////////////////////////// O.P.T. cuts   	////////////////////////	
+ 		if (Bvtxcl < 0.08) {
+-		//	ClearEvent();
+-		//	tree_->Fill();
++			ClearEvent();
++			tree_->Fill();
+ 			continue;
+ 		}
+ 		p1+=1;
+ 		if (Bcosalphabs2D < 0.9997) {
+-		//	ClearEvent();
+-		//	tree_->Fill();
++			ClearEvent();
++			tree_->Fill();
+ 			continue;
+ 		}
+ 		p2+=1;
+ 		if (Trkdcasigbs < 2.7) {
+-		//	ClearEvent();
+-		//	tree_->Fill();
++			ClearEvent();
++			tree_->Fill();
+ 			continue;
+ 		}
+ 		p3+=1;
+ 		if (Blxysig < 7.0) {
+-		//	ClearEvent();
+-		//	tree_->Fill();
++			ClearEvent();
++			tree_->Fill();
+ 			continue;
+ 		}
+ 		p4+=1;
+ 		if (Tk_4vec->Pt() < 1.3) {
+-		//	ClearEvent();
+-		//	tree_->Fill();
++			ClearEvent();
++			tree_->Fill();
+ 			continue;
+ 		}
+ 		p5+=1;
+ 	//	if (Trkdcasigbs == -999) continue;
+ 		
+ /////////////////////////// anti-radiation	////////////////////////	
+-/*	// LHCb	
+- 		if (Bmass < 5.23) {
+-			if (Mumumass > 2.997 &&  Mumumass < 3.15) continue;
+-			if (Mumumass > 3.566 &&  Mumumass < 3.75) continue;
++/*		if (Bmass < 5.23) {
++			if (Mumumass > 2.967 &&  Mumumass < 3.15) continue;
++			if (Mumumass > 3.551 &&  Mumumass < 3.75) continue;
+ 
+ 		}
+ */		
+-/*	// Anti1	
+-		if (Bmass < 5.23) {
++/*		if (Bmass < 5.23) {
+ 			A0+=1;
+ 			if (fabs(Bmass-Mumumass-2.182) <0.140) {
+ 	//		ClearEvent();
+@@ -184,7 +173,7 @@
+ 				continue;
+ 			}
+ 			A1+=1;
+-			if (fabs(Bmass-Mumumass-1.593) <0.060) {
++			if (fabs(Bmass-Mumumass-1.593) <0.070) {
+ 	//		ClearEvent();
+ 	//		tree_->Fill();
+ 				continue;
+@@ -222,14 +211,14 @@
+ */		
+ 	// Anti3	
+ 		if (fabs(Bmass-Mumumass-2.182) <0.125) {
+-	//	ClearEvent();
+-	//	tree_->Fill();
++		ClearEvent();
++		tree_->Fill();
+ 			continue;
+ 		}
+ 		A0+=1;
+ 		if (fabs(Bmass-Mumumass-1.593) <0.070) {
+-	//	ClearEvent();
+-	//	tree_->Fill();
++		ClearEvent();
++		tree_->Fill();
+ 			continue;
+ 		}
+ 		A1+=1;

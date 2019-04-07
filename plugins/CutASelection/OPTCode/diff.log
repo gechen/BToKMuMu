@@ -1,0 +1,67 @@
+--- good_fom_antiradiative.py	2016-08-05 00:54:39.000000001 +0200
++++ OPT_HLT/good_fom_antiradiative.py	2016-05-04 16:31:37.000000001 +0200
+@@ -6,12 +6,10 @@
+ 
+ 
+ 
+-#allcut = { "Bvtxcl":["Bvtxcl >",0.12, 0.04, 0.22, 0.01], "Bcosalphabs2D":["Bcosalphabs2D >", 0.9997, 0.9990,0.9999, 0.0001], "Blxysig":["Blxysig >", 10.6, 7.0, 12.0, 0.1], "TrkPt":["Tk_4vec.Pt() >", 1.3,0.6,3.0,0.1], "Trkdcasigbs":["Trkdcasigbs >",3.3, 2.5, 4.5, 0.1]}  # OPT
+-#allcut = {  "Bcosalphabs2D":["Bcosalphabs2D >", 0.9997, 0.9990,0.9999, 0.0001], "Blxysig":["Blxysig >", 10.7, 7.0, 12.0, 0.1], "TrkPt":["Tk_4vec.Pt() >", 1.5,0.6,3.0,0.1], "Trkdcasigbs":["Trkdcasigbs >",3.8, 2.5, 4.5, 0.1]}  # OPT
+-allcut = {"Bvtxcl":["Bvtxcl >",0.08, 0.02, 0.22, 0.01], "Bcosalphabs2D":["Bcosalphabs2D >", 0.9997, 0.9990,0.9999, 0.0001], "Blxysig":["Blxysig >", 7.0, 5.0, 10.0, 0.1], "Tk_4vec.Pt()":["Tk_4vec.Pt() >", 1.3,0.6,2.0,0.1], "Trkdcasigbs":["Trkdcasigbs >",2.7, 1.8, 3.5, 0.1]}  # OPT
++#allcut = {"Bvtxcl":["Bvtxcl >",0.08, 0.02, 0.22, 0.01], "Bcosalphabs2D":["Bcosalphabs2D >", 0.9997, 0.9990,0.9999, 0.0001], "Blxysig":["Blxysig >", 7.0, 5.0, 10.0, 0.1], "Tk_4vec.Pt()":["Tk_4vec.Pt() >", 1.3,0.6,2.0,0.1], "Trkdcasigbs":["Trkdcasigbs >",2.7, 1.8, 3.5, 0.1]}  # OPT
+ #allcut = { "antirad_jpsi":["abs(Bmass - Mumumass - 2.182) >", 0.125, 0.05, 0.25,0.005],"antirad_psip":["abs(Bmass - Mumumass - 1.593) >", 0.07, 0.02, 0.12,0.005]  }  # veto 
+ 
+-#allcut = { "jpsimass_cdf":["(Bmass < 5.23) && abs(Bmass - Mumumass - 2.182) >", 0.140, 0.05, 0.25,0.005],"psimass_cdf":["(Bmass < 5.23) && abs(Bmass - Mumumass - 1.593) >", 0.06, 0.02, 0.12,0.005]  }  # veto 
++allcut = { "jpsimass_cdf":["(Bmass < 5.23) && abs(Bmass - Mumumass - 2.182) >", 0.140, 0.05, 0.25,0.005],"psimass_cdf":["(Bmass < 5.23) && abs(Bmass - Mumumass - 1.593) >", 0.06, 0.02, 0.12,0.005]  }  # veto 
+ #allcut = { "antirad_lhcbjpsi":["(Bmass < 5.23) && (Mumumass < 3.15) && (3.097 - Mumumass) <", 0.10, 0.01, 0.30,0.005]  }  # LHCb jpsi
+ #allcut = { "antirad_lhcbpsip":["(Bmass < 5.23) && (Mumumass < 3.75) && (3.686 - Mumumass) <", 0.12, 0.01, 0.30,0.005]  }  # LHCb psi
+ 
+@@ -87,13 +85,11 @@
+     global tg, ftitle
+ 
+     ## OPT
+-    #dtfile = "../RootFiles/bfOPT/Data_2012_bfOPT_cut1.root"
+-    #mcfile = "../RootFiles/bfOPT/BToKMuMu_SignalMC_8TeV_v4_bfOPT_cut1.root"
+-    dtfile = "../RootFiles/Files/Data_2012_8TeV_v4_cut0+HLT+Q+B2+resonance-1.root"
+-    mcfile = "../RootFiles/Files/MC_Signal_8TeV_v4_cut0+HLT+Q+B2+resonance-1_NoGEN.root"
++    #dtfile = "../RootFiles/Files/Data_2012_8TeV_v4_cut0+HLT+Q+B2+resonance-1.root"
++    #mcfile = "../RootFiles/Files/MC_Signal_8TeV_v4_cut0+HLT+Q+B2+resonance-1_NoGEN.root"
+     ## veto
+-    #dtfile = "../RootFiles/Files/Data_2012_8TeV_v4_cut0+HLT+Q+B2+resonance-1+OPT.root"
+-    #mcfile = "../RootFiles/Files/MC_Signal_8TeV_v4_cut0+HLT+Q+B2+resonance-1+OPT_NoGEN.root"
++    dtfile = "../RootFiles/Files/Data_2012_8TeV_v4_cut0+HLT+Q+B2+resonance-1+OPT.root"
++    mcfile = "../RootFiles/Files/MC_Signal_8TeV_v4_cut0+HLT+Q+B2+resonance-1+OPT_NoGEN.root"
+     ## LHCb jpsi
+     #dtfile = "../RootFiles/Files/Data_2012_8TeV_v4_cut0+HLT+Q+B2+JpsiK+OPT.root"
+     #mcfile = "../RootFiles/Files/MC_JpsiK_8TeV_v4_cut0+HLT+Q+B2+JpsiK+OPT.root"
+@@ -141,13 +137,11 @@
+ def plot_same(thisrange):
+ 
+     ## OPT
+-    #dtfile = "../RootFiles/bfOPT/Data_2012_bfOPT_cut1.root"
+-    #mcfile = "../RootFiles/bfOPT/BToKMuMu_SignalMC_8TeV_v4_bfOPT_cut1.root"
+-    dtfile = "../RootFiles/Files/Data_2012_8TeV_v4_cut0+HLT+Q+B2+resonance-1.root"
+-    mcfile = "../RootFiles/Files/MC_Signal_8TeV_v4_cut0+HLT+Q+B2+resonance-1_NoGEN.root"
++    #dtfile = "../RootFiles/Files/Data_2012_8TeV_v4_cut0+HLT+Q+B2+resonance-1.root"
++    #mcfile = "../RootFiles/Files/MC_Signal_8TeV_v4_cut0+HLT+Q+B2+resonance-1_NoGEN.root"
+     ## veto
+-    #dtfile = "../RootFiles/Files/Data_2012_8TeV_v4_cut0+HLT+Q+B2+resonance-1+OPT.root"
+-    #mcfile = "../RootFiles/Files/MC_Signal_8TeV_v4_cut0+HLT+Q+B2+resonance-1+OPT_NoGEN.root"
++    dtfile = "../RootFiles/Files/Data_2012_8TeV_v4_cut0+HLT+Q+B2+resonance-1+OPT.root"
++    mcfile = "../RootFiles/Files/MC_Signal_8TeV_v4_cut0+HLT+Q+B2+resonance-1+OPT_NoGEN.root"
+     ## LHCb jpsi
+     #dtfile = "../RootFiles/Files/Data_2012_8TeV_v4_cut0+HLT+Q+B2+JpsiK+OPT.root"
+     #mcfile = "../RootFiles/Files/MC_JpsiK_8TeV_v4_cut0+HLT+Q+B2+JpsiK+OPT.root"
+@@ -198,11 +192,11 @@
+ if __name__ == "__main__":
+     c1 = TCanvas()
+     #c1.SetLogy(1)
+-    for k in allcut.keys():
++    #for k in allcut.keys():
+     #for k in ["antirad_lhcbjpsi"]:
+     #for k in ["antirad_lhcbpsip"]:
+     #for k in ["antirad_jpsi", "antirad_psip"]:
+-    #for k in ["jpsimass_cdf", "psimass_cdf"]:
++    for k in ["jpsimass_cdf", "psimass_cdf"]:
+         good_fom(k)
+         tg.Draw("AP3")
+         c1.Print(ftitle)
