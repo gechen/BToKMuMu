@@ -1,0 +1,71 @@
+
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+>>>>>>>>>> iBin = 6
+Evaluate reconstruction efficiency for bin#6
+Bin 6 = 1746758; BEta>2.5: 8506
+Reco_6 = 76581 / 1746758 = 0.0438418
+INFO: recoEfficiency_fine(1)=0.053830 +- 0.002285.
+INFO: recoEfficiency_fine(2)=0.056797 +- 0.001357.
+INFO: recoEfficiency_fine(3)=0.054704 +- 0.001034.
+INFO: recoEfficiency_fine(4)=0.052839 +- 0.000857.
+INFO: recoEfficiency_fine(5)=0.046533 +- 0.000713.
+INFO: recoEfficiency_fine(6)=0.042724 +- 0.000627.
+INFO: recoEfficiency_fine(7)=0.040547 +- 0.000575.
+INFO: recoEfficiency_fine(8)=0.038559 +- 0.000535.
+INFO: recoEfficiency_fine(9)=0.036453 +- 0.000507.
+INFO: recoEfficiency_fine(10)=0.037170 +- 0.000504.
+INFO: recoEfficiency_fine(11)=0.036434 +- 0.000498.
+INFO: recoEfficiency_fine(12)=0.038166 +- 0.000517.
+INFO: recoEfficiency_fine(13)=0.040341 +- 0.000547.
+INFO: recoEfficiency_fine(14)=0.042779 +- 0.000588.
+INFO: recoEfficiency_fine(15)=0.045182 +- 0.000644.
+INFO: recoEfficiency_fine(16)=0.051000 +- 0.000743.
+INFO: recoEfficiency_fine(17)=0.057796 +- 0.000891.
+INFO: recoEfficiency_fine(18)=0.062023 +- 0.001086.
+INFO: recoEfficiency_fine(19)=0.071050 +- 0.001502.
+INFO: recoEfficiency_fine(20)=0.073173 +- 0.002649.
+INFO: Efficiency_fine(1)=0.001356 +- 0.000132.
+INFO: Efficiency_fine(2)=0.001223 +- 0.000075.
+INFO: Efficiency_fine(3)=0.001387 +- 0.000064.
+INFO: Efficiency_fine(4)=0.001410 +- 0.000055.
+INFO: Efficiency_fine(5)=0.001373 +- 0.000047.
+INFO: Efficiency_fine(6)=0.001290 +- 0.000041.
+INFO: Efficiency_fine(7)=0.001241 +- 0.000038.
+INFO: Efficiency_fine(8)=0.001247 +- 0.000036.
+INFO: Efficiency_fine(9)=0.001212 +- 0.000034.
+INFO: Efficiency_fine(10)=0.001219 +- 0.000034.
+INFO: Efficiency_fine(11)=0.001177 +- 0.000033.
+INFO: Efficiency_fine(12)=0.001202 +- 0.000034.
+INFO: Efficiency_fine(13)=0.001282 +- 0.000037.
+INFO: Efficiency_fine(14)=0.001328 +- 0.000040.
+INFO: Efficiency_fine(15)=0.001343 +- 0.000043.
+INFO: Efficiency_fine(16)=0.001542 +- 0.000052.
+INFO: Efficiency_fine(17)=0.001561 +- 0.000060.
+INFO: Efficiency_fine(18)=0.001617 +- 0.000072.
+INFO: Efficiency_fine(19)=0.001600 +- 0.000095.
+INFO: Efficiency_fine(20)=0.001571 +- 0.000158.
+ FCN=15.9136 FROM MIGRAD    STATUS=CONVERGED     202 CALLS         203 TOTAL
+                     EDM=1.72634e-10    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.67927e-02   2.67230e-04   3.06891e-07   8.99643e-02
+   2  p1           3.76167e-03   1.15411e-03   7.80861e-07  -3.84794e-04
+   3  p2           3.27244e-02   4.45443e-03   1.27341e-06   2.01250e-03
+   4  p3          -5.66263e-03   6.10270e-03   1.76757e-06   1.37776e-03
+   5  p4           3.99236e-02   1.54704e-02   2.25408e-06  -4.34637e-03
+   6  p5           1.50276e-02   6.77797e-03   2.72964e-06   1.38388e-03
+   7  p6          -4.76014e-02   1.35486e-02   3.19365e-06  -4.67443e-03
+RECO ERROR MATRIX: 
+                   1             2            3            4            5            6            7       
+RecoErr1  7.14117e-08 -3.95146e-10 -8.52816e-07 5.1175e-09 2.32498e-06 -7.95474e-09 -1.70405e-06 
+RecoErr2  -3.95146e-10 1.33196e-06 1.23427e-07 -6.24857e-06 -5.97865e-07 5.9915e-06 6.06172e-07 
+RecoErr3  -8.52816e-07 1.23427e-07 1.98419e-05 -7.0699e-07 -6.51361e-05 8.06958e-07 5.21304e-05 
+RecoErr4  5.1175e-09 -6.24857e-06 -7.0699e-07 3.72429e-05 3.99996e-06 -3.97585e-05 -4.41592e-06 
+RecoErr5  2.32498e-06 -5.97865e-07 -6.51361e-05 3.99996e-06 0.000239332 -4.81948e-06 -0.000204541 
+RecoErr6  -7.95474e-09 5.9915e-06 8.06958e-07 -3.97585e-05 -4.81948e-06 4.59408e-05 5.65881e-06 
+RecoErr7  -1.70405e-06 6.06172e-07 5.21304e-05 -4.41592e-06 -0.000204541 5.65881e-06 0.000183566 
+18428978 entries processed.

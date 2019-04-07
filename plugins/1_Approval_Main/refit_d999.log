@@ -1,0 +1,37 @@
+
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+iBin = 0
+Afb[0]=0.0789 + 0.2193 - 0.1909
+Fh [0]=0.2054 + 0.2963 - 0.2054
+iBin = 1
+Afb[1]=-0.0446 + 0.1224 - 0.1237
+Fh [1]=0.8500 + 0.3428 - 0.3136
+iBin = 2
+Afb[2]=-0.0004 + 0.0429 - 0.0406
+Fh [2]=0.0011 + 0.0184 - 0.0011
+iBin = 4
+Afb[4]=-0.0015 + 0.0477 - 0.0462
+Fh [4]=0.0037 + 0.0211 - 0.0037
+iBin = 6
+Afb[6]=0.0114 + 0.0562 - 0.0464
+Fh [6]=0.0255 + 0.0344 - 0.0255
+iBin = 7
+Afb[7]=0.0371 + 0.0465 - 0.0381
+Fh [7]=0.0743 + 0.0613 - 0.0743
+iBin = 8
+Afb[8]=0.0477 + 0.0537 - 0.0429
+Fh [8]=0.1015 + 0.0640 - 0.1003
+iBin = 9
+Afb[9]=-0.1380 + 0.0704 - 0.0937
+Fh [9]=0.3786 + 0.1681 - 0.2064
+iBin = 10
+Info in <TCanvas::Print>: pdf file ./plots/angular2D_fh.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file ./plots/angular2D_fh.root has been created
+Info in <TCanvas::Print>: pdf file ./plots/angular2D_afb.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file ./plots/angular2D_afb.root has been created
+Afb[10]=0.0020 + 0.0240 - 0.0217
+Fh [10]=0.0044 + 0.0058 - 0.0044
+0 entries processed.

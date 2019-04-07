@@ -1,0 +1,851 @@
+
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+iBin = 1
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>> INFO: f_sig prepared. <<<<<<<<<<<<<<<<<<<<<<<<<
+>>>>>>>>>>>>>>>> INFO: f_bkgComb prepared. <<<<<<<<<<<<<<<<<<<<<<
+>>>>>>>>>>>>>>>>>>>>>>>>>>> INFO: f_penalty NOT prepared. <<<<<<<<<<<<<<<<<<<<
+[#1] INFO:Eval -- RooTreeDataStore::loadValues(data) Ignored 28 out of range events
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: activating const optimization
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Minization --  The following expressions have been identified as constant and will be precalculated and cached: (f_bkgCombL,Bmass_offset)
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (f_bkgCombM,f_sigMGauss1,f_sigMGauss2,f_sigA)
+[#0] WARNING:Minization -- RooMinimizerFcn::synchronize: WARNING: no initial error estimate available for afb: using 0.2
+[#0] WARNING:Minization -- RooMinimizerFcn::synchronize: WARNING: no initial error estimate available for bkgCombM_c: using 0.75
+[#0] WARNING:Minization -- RooMinimizerFcn::synchronize: WARNING: no initial error estimate available for fh: using 0.0353542
+[#0] WARNING:Minization -- RooMinimizerFcn::synchronize: WARNING: no initial error estimate available for nbkgComb: using 50
+[#0] WARNING:Minization -- RooMinimizerFcn::synchronize: WARNING: no initial error estimate available for nsig: using 25
+[#0] WARNING:Minization -- RooMinimizerFcn::synchronize: WARNING: no initial error estimate available for sigGauss_mean: using 0.004
+ **********
+ **    1 **SET PRINT           1
+ **********
+ **********
+ **    2 **SET NOGRAD
+ **********
+ PARAMETER DEFINITIONS:
+    NO.   NAME         VALUE      STEP SIZE      LIMITS
+     1 afb         -3.48780e-04  2.00000e-01   -1.00000e+00  1.00000e+00
+     2 bkgCombM_c  -5.00000e-01  7.50000e-01   -2.00000e+01  1.00000e+00
+     3 fh           7.07084e-02  3.53542e-02    0.00000e+00  3.00000e+00
+     4 nbkgComb     1.00000e+02  5.00000e+01    0.00000e+00  6.00000e+03
+     5 nsig         5.00000e+01  2.50000e+01    0.00000e+00  4.00000e+03
+     6 sigGauss_mean   5.27900e+00  4.00000e-03    5.26000e+00  5.30000e+00
+ **********
+ **    3 **SET ERR         0.5
+ **********
+ **********
+ **    4 **SET PRINT           1
+ **********
+ **********
+ **    5 **SET STR           1
+ **********
+ NOW USING STRATEGY  1: TRY TO BALANCE SPEED AGAINST RELIABILITY
+ **********
+ **    6 **MIGRAD        3000           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+
+prevFCN = -7728.866025   START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+afb=0.008295, fh=0.07071, nbkgComb=100, nsig=50, 
+prevFCN = -7728.851184  afb=-0.008993, 
+prevFCN = -7728.869754  afb=0.004629, 
+prevFCN = -7728.858834  afb=-0.005327, 
+prevFCN = -7728.86953  afb=-0.0003488, bkgCombM_c=-0.4669, 
+prevFCN = -7728.755917  bkgCombM_c=-0.5335, 
+prevFCN = -7728.955438  bkgCombM_c=-0.486, 
+prevFCN = -7728.822042  bkgCombM_c=-0.5141, 
+prevFCN = -7728.906322  bkgCombM_c=-0.5, fh=0.07229, 
+prevFCN = -7728.877165  fh=0.06915, 
+prevFCN = -7728.854982  fh=0.0807, 
+prevFCN = -7728.936162  fh=0.06136, 
+prevFCN = -7728.799573  fh=0.07071, nbkgComb=102.2, 
+prevFCN = -7749.235591  nbkgComb=97.79, 
+prevFCN = -7708.311576  nbkgComb=100.3, 
+prevFCN = -7731.753189  nbkgComb=99.69, 
+prevFCN = -7725.975175  nbkgComb=100, nsig=51.12, 
+prevFCN = -7737.402675  nsig=48.9, 
+prevFCN = -7720.304128  nsig=50.43, 
+prevFCN = -7732.130694  nsig=49.58, 
+prevFCN = -7725.597671  nsig=50, sigGauss_mean=5.279, 
+prevFCN = -7728.803408  sigGauss_mean=5.279, 
+prevFCN = -7728.925921  fh=0.0807, sigGauss_mean=5.279, 
+prevFCN = -7728.936162  fh=0.1271, 
+prevFCN = -7729.249071  fh=0.2854, 
+prevFCN = -7730.162072  fh=1.048, 
+prevFCN = -7730.401664  fh=0.6729, 
+prevFCN = -7731.266109  afb=0.00463, 
+prevFCN = -7731.253261  afb=-0.005328, 
+prevFCN = -7731.275405  afb=-0.0003488, bkgCombM_c=-0.486, 
+prevFCN = -7731.220987  bkgCombM_c=-0.5141, 
+prevFCN = -7731.30755  bkgCombM_c=-0.5, fh=0.6997, 
+prevFCN = -7731.275054  fh=0.6465, 
+prevFCN = -7731.247926  fh=0.6898, 
+prevFCN = -7731.272874  fh=0.6561, 
+prevFCN = -7731.255658  fh=0.6729, nbkgComb=100.3, 
+prevFCN = -7734.152792  nbkgComb=99.69, 
+prevFCN = -7728.375736  nbkgComb=100, nsig=50.43, 
+prevFCN = -7734.533716  nsig=49.58, 
+prevFCN = -7727.994771  nsig=50, sigGauss_mean=5.279, 
+prevFCN = -7731.204015  sigGauss_mean=5.279, 
+prevFCN = -7731.324488   FCN=-7731.27 FROM MIGRAD    STATUS=INITIATE       41 CALLS          42 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  afb         -3.48780e-04   2.00000e-01   0.00000e+00   2.22384e+00
+   2  bkgCombM_c  -5.00000e-01   7.50000e-01   0.00000e+00   1.66639e+01
+   3  fh           6.72875e-01   3.53542e-02   6.78469e-01  -6.40835e-01
+   4  nbkgComb     1.00000e+02   5.00000e+01   0.00000e+00  -7.07316e+03
+   5  nsig         5.00000e+01   2.50000e+01   0.00000e+00  -3.42331e+03
+   6  sigGauss_mean   5.27900e+00   4.00000e-03   0.00000e+00   5.97898e+00
+                               ERR DEF= 0.5
+afb=-0.01586, bkgCombM_c=-0.6693, fh=0.7125, nbkgComb=488.3, nsig=1024, sigGauss_mean=5.276, 
+prevFCN = -9500.316018  afb=-0.01219, bkgCombM_c=-0.6285, fh=0.7031, nbkgComb=371.5, nsig=699.5, sigGauss_mean=5.277, 
+prevFCN = -9468.608476  afb=-0.01451, bkgCombM_c=-0.6542, fh=0.709, nbkgComb=443.7, nsig=899.4, sigGauss_mean=5.276, 
+prevFCN = -9506.172092  afb=-0.00889, 
+prevFCN = -9506.227286  afb=-0.02014, 
+prevFCN = -9506.107943  afb=-0.01051, 
+prevFCN = -9506.21228  afb=-0.01851, 
+prevFCN = -9506.127371  afb=-0.01451, bkgCombM_c=-0.638, 
+prevFCN = -9506.436055  bkgCombM_c=-0.6706, 
+prevFCN = -9505.90346  bkgCombM_c=-0.6542, fh=0.7281, 
+prevFCN = -9506.063053  fh=0.6901, 
+prevFCN = -9506.269164  fh=0.7208, 
+prevFCN = -9506.106424  fh=0.6974, 
+prevFCN = -9506.233226  fh=0.709, nbkgComb=444.4, 
+prevFCN = -9506.661795  nbkgComb=443, 
+prevFCN = -9505.681318  nbkgComb=445.1, 
+prevFCN = -9507.178595  nbkgComb=442.2, 
+prevFCN = -9505.161056  nbkgComb=443.7, nsig=901.1, 
+prevFCN = -9505.793595  nsig=897.6, 
+prevFCN = -9506.548361  nsig=899.4, sigGauss_mean=5.276, 
+prevFCN = -9506.178831  sigGauss_mean=5.276, 
+prevFCN = -9506.158591  afb=0.05831, bkgCombM_c=0.1619, fh=0.335, nbkgComb=533.1, nsig=784.7, sigGauss_mean=5.276, 
+prevFCN = -9588.158506  afb=0.1643, bkgCombM_c=0.8692, fh=0.02766, nbkgComb=677.4, nsig=627.8, sigGauss_mean=5.277, [#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (-7708) to force MIGRAD to back out of this region. Error log follows
+Parameter values: afb=0.1643, bkgCombM_c=0.8692, fh=0.02766, nbkgComb=677.4, nsig=627.8, sigGauss_mean=5.277
+RooGenericPdf::f_sigA[ actualVars=(CosThetaL,fh,afb,accP0,accP1,accP2,accP3,recoP0,recoP1,recoP2,recoP3,recoP4,recoP5,recoP6) formula="( accP0 + accP1 *exp(-0.5*(((CosThetaL-accP2)/accP3)**2)) ) * ( recoP0 + recoP1 * CosThetaL + recoP2 * CosThetaL**2 + recoP3 * CosThetaL**3 + recoP4 * CosThetaL**4 + recoP5 * CosThetaL**5 + recoP6 * CosThetaL**6  ) * ( 0.75*(1-fh)*(1-CosThetaL*CosThetaL) + 0.5*fh + afb*CosThetaL )" ]
+     p.d.f value is less than zero (-0.000008), forcing value to zero @ actualVars=(CosThetaL = -1,fh = 0.0276572,afb = 0.164323,accP0 = 0 +/- 0,accP1 = 0.0357635 +/- 0.000287892,accP2 = 0.00466237 +/- 0.00274099,accP3 = 0.355897 +/- 0.00228759,recoP0 = 0.0548168 +/- 0.000273066,recoP1 = -0.0014568 +/- 0.00147401,recoP2 = 0.125977 +/- 0.00645413,recoP3 = 0.0183919 +/- 0.0108348,recoP4 = -0.101446 +/- 0.0292822,recoP5 = -0.0126271 +/- 0.0158091,recoP6 = 0.00626743 +/- 0.0320354)
+
+
+prevFCN = -7707.311576  afb=0.0273, bkgCombM_c=-0.1542, fh=0.4808, nbkgComb=494.1, nsig=832.9, sigGauss_mean=5.276, 
+prevFCN = -9557.979872  afb=0.1748, bkgCombM_c=0.9062, fh=0.01547, nbkgComb=692.6, nsig=612.9, sigGauss_mean=5.277, [#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (-7708) to force MIGRAD to back out of this region. Error log follows
+Parameter values: afb=0.1748, bkgCombM_c=0.9062, fh=0.01547, nbkgComb=692.6, nsig=612.9, sigGauss_mean=5.277
+RooGenericPdf::f_sigA[ actualVars=(CosThetaL,fh,afb,accP0,accP1,accP2,accP3,recoP0,recoP1,recoP2,recoP3,recoP4,recoP5,recoP6) formula="( accP0 + accP1 *exp(-0.5*(((CosThetaL-accP2)/accP3)**2)) ) * ( recoP0 + recoP1 * CosThetaL + recoP2 * CosThetaL**2 + recoP3 * CosThetaL**3 + recoP4 * CosThetaL**4 + recoP5 * CosThetaL**5 + recoP6 * CosThetaL**6  ) * ( 0.75*(1-fh)*(1-CosThetaL*CosThetaL) + 0.5*fh + afb*CosThetaL )" ]
+     p.d.f value is less than zero (-0.000009), forcing value to zero @ actualVars=(CosThetaL = -1,fh = 0.0154706,afb = 0.17477,accP0 = 0 +/- 0,accP1 = 0.0357635 +/- 0.000287892,accP2 = 0.00466237 +/- 0.00274099,accP3 = 0.355897 +/- 0.00228759,recoP0 = 0.0548168 +/- 0.000273066,recoP1 = -0.0014568 +/- 0.00147401,recoP2 = 0.125977 +/- 0.00645413,recoP3 = 0.0183919 +/- 0.0108348,recoP4 = -0.101446 +/- 0.0292822,recoP5 = -0.0126271 +/- 0.0158091,recoP6 = 0.00626743 +/- 0.0320354)
+
+
+prevFCN = -7707.311576  afb=0.1167, bkgCombM_c=0.6252, fh=0.1259, nbkgComb=610.5, nsig=696.7, sigGauss_mean=5.277, [#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (-7708) to force MIGRAD to back out of this region. Error log follows
+Parameter values: afb=0.1167, bkgCombM_c=0.6252, fh=0.1259, nbkgComb=610.5, nsig=696.7, sigGauss_mean=5.277
+RooGenericPdf::f_sigA[ actualVars=(CosThetaL,fh,afb,accP0,accP1,accP2,accP3,recoP0,recoP1,recoP2,recoP3,recoP4,recoP5,recoP6) formula="( accP0 + accP1 *exp(-0.5*(((CosThetaL-accP2)/accP3)**2)) ) * ( recoP0 + recoP1 * CosThetaL + recoP2 * CosThetaL**2 + recoP3 * CosThetaL**3 + recoP4 * CosThetaL**4 + recoP5 * CosThetaL**5 + recoP6 * CosThetaL**6  ) * ( 0.75*(1-fh)*(1-CosThetaL*CosThetaL) + 0.5*fh + afb*CosThetaL )" ]
+     p.d.f value is less than zero (-0.000003), forcing value to zero @ actualVars=(CosThetaL = -1,fh = 0.12588,afb = 0.116742,accP0 = 0 +/- 0,accP1 = 0.0357635 +/- 0.000287892,accP2 = 0.00466237 +/- 0.00274099,accP3 = 0.355897 +/- 0.00228759,recoP0 = 0.0548168 +/- 0.000273066,recoP1 = -0.0014568 +/- 0.00147401,recoP2 = 0.125977 +/- 0.00645413,recoP3 = 0.0183919 +/- 0.0108348,recoP4 = -0.101446 +/- 0.0292822,recoP5 = -0.0126271 +/- 0.0158091,recoP6 = 0.00626743 +/- 0.0320354)
+
+
+prevFCN = -7707.311576  afb=0.08756, bkgCombM_c=0.4159, fh=0.2189, nbkgComb=571.3, nsig=740.2, sigGauss_mean=5.277, 
+prevFCN = -9611.326052  afb=0.1131, bkgCombM_c=0.6016, fh=0.1361, nbkgComb=605.6, nsig=702.1, sigGauss_mean=5.277, [#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (-7708) to force MIGRAD to back out of this region. Error log follows
+Parameter values: afb=0.1131, bkgCombM_c=0.6016, fh=0.1361, nbkgComb=605.6, nsig=702.1, sigGauss_mean=5.277
+RooGenericPdf::f_sigA[ actualVars=(CosThetaL,fh,afb,accP0,accP1,accP2,accP3,recoP0,recoP1,recoP2,recoP3,recoP4,recoP5,recoP6) formula="( accP0 + accP1 *exp(-0.5*(((CosThetaL-accP2)/accP3)**2)) ) * ( recoP0 + recoP1 * CosThetaL + recoP2 * CosThetaL**2 + recoP3 * CosThetaL**3 + recoP4 * CosThetaL**4 + recoP5 * CosThetaL**5 + recoP6 * CosThetaL**6  ) * ( 0.75*(1-fh)*(1-CosThetaL*CosThetaL) + 0.5*fh + afb*CosThetaL )" ]
+     p.d.f value is less than zero (-0.000002), forcing value to zero @ actualVars=(CosThetaL = -1,fh = 0.136114,afb = 0.113123,accP0 = 0 +/- 0,accP1 = 0.0357635 +/- 0.000287892,accP2 = 0.00466237 +/- 0.00274099,accP3 = 0.355897 +/- 0.00228759,recoP0 = 0.0548168 +/- 0.000273066,recoP1 = -0.0014568 +/- 0.00147401,recoP2 = 0.125977 +/- 0.00645413,recoP3 = 0.0183919 +/- 0.0108348,recoP4 = -0.101446 +/- 0.0292822,recoP5 = -0.0126271 +/- 0.0158091,recoP6 = 0.00626743 +/- 0.0320354)
+
+
+prevFCN = -7707.311576  afb=0.1004, bkgCombM_c=0.5131, fh=0.1752, nbkgComb=588.3, nsig=721.1, sigGauss_mean=5.277, [#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (-7708) to force MIGRAD to back out of this region. Error log follows
+Parameter values: afb=0.1004, bkgCombM_c=0.5131, fh=0.1752, nbkgComb=588.3, nsig=721.1, sigGauss_mean=5.277
+RooGenericPdf::f_sigA[ actualVars=(CosThetaL,fh,afb,accP0,accP1,accP2,accP3,recoP0,recoP1,recoP2,recoP3,recoP4,recoP5,recoP6) formula="( accP0 + accP1 *exp(-0.5*(((CosThetaL-accP2)/accP3)**2)) ) * ( recoP0 + recoP1 * CosThetaL + recoP2 * CosThetaL**2 + recoP3 * CosThetaL**3 + recoP4 * CosThetaL**4 + recoP5 * CosThetaL**5 + recoP6 * CosThetaL**6  ) * ( 0.75*(1-fh)*(1-CosThetaL*CosThetaL) + 0.5*fh + afb*CosThetaL )" ]
+     p.d.f value is less than zero (-0.000001), forcing value to zero @ actualVars=(CosThetaL = -1,fh = 0.175208,afb = 0.100352,accP0 = 0 +/- 0,accP1 = 0.0357635 +/- 0.000287892,accP2 = 0.00466237 +/- 0.00274099,accP3 = 0.355897 +/- 0.00228759,recoP0 = 0.0548168 +/- 0.000273066,recoP1 = -0.0014568 +/- 0.00147401,recoP2 = 0.125977 +/- 0.00645413,recoP3 = 0.0183919 +/- 0.0108348,recoP4 = -0.101446 +/- 0.0292822,recoP5 = -0.0126271 +/- 0.0158091,recoP6 = 0.00626743 +/- 0.0320354)
+
+
+prevFCN = -7707.311576  afb=0.09396, bkgCombM_c=0.4655, fh=0.1965, nbkgComb=579.8, nsig=730.6, sigGauss_mean=5.277, 
+prevFCN = -9615.796462  afb=0.09797, 
+prevFCN = -9615.720886  afb=0.08995, 
+prevFCN = -9615.867766  afb=0.09396, bkgCombM_c=0.4749, 
+prevFCN = -9615.744086  bkgCombM_c=0.4561, 
+prevFCN = -9615.848014  bkgCombM_c=0.4876, 
+prevFCN = -9615.671516  bkgCombM_c=0.443, 
+prevFCN = -9615.916821  bkgCombM_c=0.4655, fh=0.2034, 
+prevFCN = -9615.844436  fh=0.1897, 
+prevFCN = -9615.74833  fh=0.235, 
+prevFCN = -9616.051979  fh=0.1612, [#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (-7708) to force MIGRAD to back out of this region. Error log follows
+Parameter values: afb=0.09396, bkgCombM_c=0.4655, fh=0.1612, nbkgComb=579.8, nsig=730.6, sigGauss_mean=5.277
+RooGenericPdf::f_sigA[ actualVars=(CosThetaL,fh,afb,accP0,accP1,accP2,accP3,recoP0,recoP1,recoP2,recoP3,recoP4,recoP5,recoP6) formula="( accP0 + accP1 *exp(-0.5*(((CosThetaL-accP2)/accP3)**2)) ) * ( recoP0 + recoP1 * CosThetaL + recoP2 * CosThetaL**2 + recoP3 * CosThetaL**3 + recoP4 * CosThetaL**4 + recoP5 * CosThetaL**5 + recoP6 * CosThetaL**6  ) * ( 0.75*(1-fh)*(1-CosThetaL*CosThetaL) + 0.5*fh + afb*CosThetaL )" ]
+     p.d.f value is less than zero (-0.000001), forcing value to zero @ actualVars=(CosThetaL = -1,fh = 0.161212,afb = 0.0939598,accP0 = 0 +/- 0,accP1 = 0.0357635 +/- 0.000287892,accP2 = 0.00466237 +/- 0.00274099,accP3 = 0.355897 +/- 0.00228759,recoP0 = 0.0548168 +/- 0.000273066,recoP1 = -0.0014568 +/- 0.00147401,recoP2 = 0.125977 +/- 0.00645413,recoP3 = 0.0183919 +/- 0.0108348,recoP4 = -0.101446 +/- 0.0292822,recoP5 = -0.0126271 +/- 0.0158091,recoP6 = 0.00626743 +/- 0.0320354)
+
+
+prevFCN = -7707.311576  fh=0.2002, 
+prevFCN = -9615.822351  fh=0.1928, 
+prevFCN = -9615.770526  fh=0.1965, nbkgComb=581.4, 
+prevFCN = -9616.498355  nbkgComb=578.1, 
+prevFCN = -9615.090294  nbkgComb=579.8, nsig=732.9, 
+prevFCN = -9615.474051  nsig=728.3, 
+prevFCN = -9616.11403  nsig=730.6, sigGauss_mean=5.277, 
+prevFCN = -9615.690061  sigGauss_mean=5.276, 
+prevFCN = -9615.89846  afb=-0.06247, bkgCombM_c=0.8295, fh=0.2624, nbkgComb=846.4, nsig=483.8, sigGauss_mean=5.266, 
+prevFCN = -9702.81448  afb=-0.09666, bkgCombM_c=0.8825, fh=0.278, nbkgComb=910.4, nsig=435.6, sigGauss_mean=5.265, 
+prevFCN = -9707.976405  afb=-0.1149, bkgCombM_c=0.9067, fh=0.2865, nbkgComb=945.4, nsig=410.7, sigGauss_mean=5.264, 
+prevFCN = -9709.095197  afb=-0.1107, 
+prevFCN = -9709.167701  afb=-0.119, 
+prevFCN = -9709.020166  afb=-0.1149, bkgCombM_c=0.9159, 
+prevFCN = -9708.836739  bkgCombM_c=0.897, 
+prevFCN = -9709.365364  bkgCombM_c=0.9126, 
+prevFCN = -9708.931287  bkgCombM_c=0.9007, 
+prevFCN = -9709.263737  bkgCombM_c=0.9067, fh=0.3318, 
+prevFCN = -9709.25174  fh=0.2442, 
+prevFCN = -9708.92644  fh=0.314, 
+prevFCN = -9709.193348  fh=0.2601, 
+prevFCN = -9708.99242  fh=0.2865, nbkgComb=947.5, 
+prevFCN = -9709.279336  nbkgComb=943.3, 
+prevFCN = -9708.906981  nbkgComb=945.4, nsig=412.5, 
+prevFCN = -9709.168624  nsig=408.9, 
+prevFCN = -9709.017424  nsig=410.7, sigGauss_mean=5.264, 
+prevFCN = -9709.168822  sigGauss_mean=5.264, 
+prevFCN = -9709.021412  sigGauss_mean=5.265, 
+prevFCN = -9709.488891  sigGauss_mean=5.263, 
+prevFCN = -9708.696852  afb=0.003245, bkgCombM_c=0.8202, fh=0.435, nbkgComb=996.7, nsig=401.2, sigGauss_mean=5.266, 
+prevFCN = -9717.251197  afb=0.2043, bkgCombM_c=0.608, fh=0.7446, nbkgComb=1087, nsig=385.2, sigGauss_mean=5.271, 
+prevFCN = -9722.967681  afb=0.2098, 
+prevFCN = -9722.820021  afb=0.1987, 
+prevFCN = -9723.11159  afb=0.2043, bkgCombM_c=0.62, 
+prevFCN = -9722.630912  bkgCombM_c=0.5957, 
+prevFCN = -9723.306649  bkgCombM_c=0.6254, 
+prevFCN = -9722.479332  bkgCombM_c=0.5902, 
+prevFCN = -9723.460666  bkgCombM_c=0.608, fh=0.7847, 
+prevFCN = -9722.907558  fh=0.7053, 
+prevFCN = -9723.007608  fh=0.7637, 
+prevFCN = -9722.9415  fh=0.7257, 
+prevFCN = -9722.989227  fh=0.7446, nbkgComb=1089, 
+prevFCN = -9722.931426  nbkgComb=1085, 
+prevFCN = -9722.999591  nbkgComb=1087, nsig=387, 
+prevFCN = -9722.962287  nsig=383.4, 
+prevFCN = -9722.968786  nsig=385.2, sigGauss_mean=5.272, 
+prevFCN = -9722.993763  sigGauss_mean=5.27, 
+prevFCN = -9722.875616  sigGauss_mean=5.271, 
+prevFCN = -9722.981241  sigGauss_mean=5.271, 
+prevFCN = -9722.949481  afb=0.2546, bkgCombM_c=-0.3362, fh=0.8892, nbkgComb=1133, nsig=389.9, sigGauss_mean=5.279, 
+prevFCN = -9737.241286  afb=0.3573, bkgCombM_c=-3.845, fh=1.212, nbkgComb=1231, nsig=399.9, sigGauss_mean=5.295, 
+prevFCN = -9634.49938  afb=0.247, bkgCombM_c=-0.1569, fh=0.8665, nbkgComb=1126, nsig=389.2, sigGauss_mean=5.278, 
+prevFCN = -9735.948624  afb=0.2813, bkgCombM_c=-1.053, fh=0.9695, nbkgComb=1158, nsig=392.5, sigGauss_mean=5.284, 
+prevFCN = -9735.960591  afb=0.2642, bkgCombM_c=-0.5766, fh=0.9177, nbkgComb=1142, nsig=390.8, sigGauss_mean=5.281, 
+prevFCN = -9737.959735  afb=0.2703, 
+prevFCN = -9737.742683  afb=0.2581, 
+prevFCN = -9738.172391  afb=0.2642, bkgCombM_c=-0.5424, 
+prevFCN = -9737.72733  bkgCombM_c=-0.611, 
+prevFCN = -9738.169098  bkgCombM_c=-0.5612, 
+prevFCN = -9737.85821  bkgCombM_c=-0.592, 
+prevFCN = -9738.056617  bkgCombM_c=-0.5766, fh=0.9381, 
+prevFCN = -9737.918607  fh=0.8975, 
+prevFCN = -9737.995217  fh=0.9177, nbkgComb=1144, 
+prevFCN = -9737.85808  nbkgComb=1139, 
+prevFCN = -9738.056823  nbkgComb=1142, nsig=392.7, 
+prevFCN = -9737.803711  nsig=388.9, 
+prevFCN = -9738.111378  nsig=390.8, sigGauss_mean=5.281, 
+prevFCN = -9737.851214  sigGauss_mean=5.281, 
+prevFCN = -9738.063075  afb=0.1604, bkgCombM_c=-0.9855, fh=0.8101, nbkgComb=1146, nsig=376.7, sigGauss_mean=5.281, 
+prevFCN = -9742.89255  afb=0.1102, bkgCombM_c=-1.196, fh=0.7602, nbkgComb=1148, nsig=370, sigGauss_mean=5.28, 
+prevFCN = -9743.316102  afb=0.1183, bkgCombM_c=-1.161, fh=0.7682, nbkgComb=1147, nsig=371.1, sigGauss_mean=5.28, 
+prevFCN = -9743.338911  afb=0.1247, 
+prevFCN = -9743.229248  afb=0.1118, 
+prevFCN = -9743.44429  afb=0.1183, bkgCombM_c=-1.144, 
+prevFCN = -9743.440263  bkgCombM_c=-1.179, 
+prevFCN = -9743.230323  bkgCombM_c=-1.161, fh=0.7857, 
+prevFCN = -9743.349077  fh=0.7508, 
+prevFCN = -9743.325904  fh=0.7682, nbkgComb=1150, 
+prevFCN = -9743.253908  nbkgComb=1145, 
+prevFCN = -9743.419235  nbkgComb=1147, nsig=373, 
+prevFCN = -9743.207167  nsig=369.2, 
+prevFCN = -9743.466105  nsig=371.1, sigGauss_mean=5.281, 
+prevFCN = -9743.288943  sigGauss_mean=5.28, 
+prevFCN = -9743.384331  afb=0.01242, bkgCombM_c=-0.9155, fh=0.6916, nbkgComb=1128, nsig=363, sigGauss_mean=5.278, 
+prevFCN = -9746.507203  afb=-0.03645, bkgCombM_c=-0.8068, fh=0.6573, nbkgComb=1120, nsig=359.3, sigGauss_mean=5.277, 
+prevFCN = -9746.889866  afb=-0.02969, 
+prevFCN = -9746.887422  afb=-0.04321, 
+prevFCN = -9746.887719  afb=-0.03645, bkgCombM_c=-0.7937, 
+prevFCN = -9746.874891  bkgCombM_c=-0.82, 
+prevFCN = -9746.901141  bkgCombM_c=-0.8068, fh=0.6786, 
+prevFCN = -9746.919037  fh=0.6363, 
+prevFCN = -9746.857169  fh=0.6573, nbkgComb=1122, 
+prevFCN = -9746.86097  nbkgComb=1117, 
+prevFCN = -9746.914034  nbkgComb=1120, nsig=361.2, 
+prevFCN = -9746.828643  nsig=357.5, 
+prevFCN = -9746.946385  nsig=359.3, sigGauss_mean=5.277, 
+prevFCN = -9746.886661  sigGauss_mean=5.277, 
+prevFCN = -9746.888317  afb=-0.05171, bkgCombM_c=-0.8705, fh=0.7725, nbkgComb=1122, nsig=345.3, sigGauss_mean=5.277, 
+prevFCN = -9747.347226  afb=-0.06319, bkgCombM_c=-0.9191, fh=0.8631, nbkgComb=1125, nsig=334.8, sigGauss_mean=5.277, 
+prevFCN = -9747.444285  afb=-0.0564, 
+prevFCN = -9747.45549  afb=-0.06998, 
+prevFCN = -9747.428629  afb=-0.06319, bkgCombM_c=-0.904, 
+prevFCN = -9747.451402  bkgCombM_c=-0.9343, 
+prevFCN = -9747.432087  bkgCombM_c=-0.9191, fh=0.8898, 
+prevFCN = -9747.434941  fh=0.8366, 
+prevFCN = -9747.446622  fh=0.8631, nbkgComb=1127, 
+prevFCN = -9747.438885  nbkgComb=1122, 
+prevFCN = -9747.444989  nbkgComb=1125, nsig=336.6, 
+prevFCN = -9747.430895  nsig=333, 
+prevFCN = -9747.453132  nsig=334.8, sigGauss_mean=5.277, 
+prevFCN = -9747.453341  sigGauss_mean=5.277, 
+prevFCN = -9747.430793  afb=-0.05003, bkgCombM_c=-0.9019, fh=0.8574, nbkgComb=1126, nsig=332.2, sigGauss_mean=5.277, 
+prevFCN = -9747.487926  afb=-0.04512, bkgCombM_c=-0.8955, fh=0.8552, nbkgComb=1127, nsig=331.2, sigGauss_mean=5.278, 
+prevFCN = -9747.491488  afb=-0.03817, 
+prevFCN = -9747.489752  afb=-0.05206, 
+prevFCN = -9747.488619  afb=-0.04512, bkgCombM_c=-0.8811, 
+prevFCN = -9747.487655  bkgCombM_c=-0.9099, 
+prevFCN = -9747.490749  bkgCombM_c=-0.8955, fh=0.8769, 
+prevFCN = -9747.487965  fh=0.8337, 
+prevFCN = -9747.490524  fh=0.8552, nbkgComb=1129, 
+prevFCN = -9747.485258  nbkgComb=1124, 
+prevFCN = -9747.49307  nbkgComb=1127, nsig=333, 
+prevFCN = -9747.486927  nsig=329.4, 
+prevFCN = -9747.491419  nsig=331.2, sigGauss_mean=5.278, 
+prevFCN = -9747.489332  sigGauss_mean=5.277, 
+prevFCN = -9747.488986  afb=-0.0447, bkgCombM_c=-0.8991, fh=0.8512, nbkgComb=1126, nsig=330.9, sigGauss_mean=5.278, 
+prevFCN = -9747.493469  afb=-0.04458, bkgCombM_c=-0.9002, fh=0.85, nbkgComb=1125, nsig=330.9, sigGauss_mean=5.278, 
+prevFCN = -9747.493586  afb=-0.0376, 
+prevFCN = -9747.491453  afb=-0.05155, 
+prevFCN = -9747.491072  afb=-0.04458, bkgCombM_c=-0.8857, 
+prevFCN = -9747.491216  bkgCombM_c=-0.9147, 
+prevFCN = -9747.491291  bkgCombM_c=-0.9002, fh=0.872, 
+prevFCN = -9747.49114  fh=0.8281, 
+prevFCN = -9747.491434  fh=0.85, nbkgComb=1128, 
+prevFCN = -9747.491268  nbkgComb=1123, 
+prevFCN = -9747.49125  nbkgComb=1125, nsig=332.7, 
+prevFCN = -9747.491376  nsig=329, 
+prevFCN = -9747.491146  nsig=330.9, sigGauss_mean=5.278, 
+prevFCN = -9747.491058  sigGauss_mean=5.277, 
+prevFCN = -9747.491463   MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+sigGauss_mean=5.278, 
+prevFCN = -9747.493586  afb=-0.0376, 
+prevFCN = -9747.491453  afb=-0.05155, 
+prevFCN = -9747.491072  afb=-0.04458, bkgCombM_c=-0.8857, 
+prevFCN = -9747.491216  bkgCombM_c=-0.9147, 
+prevFCN = -9747.491291  bkgCombM_c=-0.9002, fh=0.872, 
+prevFCN = -9747.49114  fh=0.8281, 
+prevFCN = -9747.491434  fh=0.85, nbkgComb=1128, 
+prevFCN = -9747.491268  nbkgComb=1123, 
+prevFCN = -9747.49125  nbkgComb=1125, nsig=332.7, 
+prevFCN = -9747.491376  nsig=329, 
+prevFCN = -9747.491146  nsig=330.9, sigGauss_mean=5.278, 
+prevFCN = -9747.491058  sigGauss_mean=5.277, 
+prevFCN = -9747.491463  afb=-0.04318, sigGauss_mean=5.278, 
+prevFCN = -9747.493531  afb=-0.04597, 
+prevFCN = -9747.493454  afb=-0.04458, bkgCombM_c=-0.8973, 
+prevFCN = -9747.493483  bkgCombM_c=-0.9031, 
+prevFCN = -9747.493501  bkgCombM_c=-0.8996, 
+prevFCN = -9747.49358  bkgCombM_c=-0.9008, 
+prevFCN = -9747.493584  bkgCombM_c=-0.9002, fh=0.8544, 
+prevFCN = -9747.493471  fh=0.8456, 
+prevFCN = -9747.493516  fh=0.8508, 
+prevFCN = -9747.493577  fh=0.8491, 
+prevFCN = -9747.493586  fh=0.85, nbkgComb=1126, 
+prevFCN = -9747.493494  nbkgComb=1125, 
+prevFCN = -9747.493491  nbkgComb=1125, 
+prevFCN = -9747.493582  nbkgComb=1125, 
+prevFCN = -9747.493581  nbkgComb=1125, nsig=331.2, 
+prevFCN = -9747.493516  nsig=330.5, 
+prevFCN = -9747.493469  nsig=330.9, sigGauss_mean=5.278, 
+prevFCN = -9747.493452  sigGauss_mean=5.278, 
+prevFCN = -9747.493533  afb=-0.0376, bkgCombM_c=-0.8857, sigGauss_mean=5.278, 
+prevFCN = -9747.489134  bkgCombM_c=-0.9002, fh=0.872, 
+prevFCN = -9747.488975  afb=-0.04458, bkgCombM_c=-0.8857, 
+prevFCN = -9747.488664  afb=-0.0376, bkgCombM_c=-0.9002, fh=0.85, nbkgComb=1128, 
+prevFCN = -9747.489046  afb=-0.04458, bkgCombM_c=-0.8857, 
+prevFCN = -9747.488597  bkgCombM_c=-0.9002, fh=0.872, 
+prevFCN = -9747.488974  afb=-0.0376, fh=0.85, nbkgComb=1125, nsig=332.7, 
+prevFCN = -9747.489467  afb=-0.04458, bkgCombM_c=-0.8857, 
+prevFCN = -9747.489761  bkgCombM_c=-0.9002, fh=0.872, 
+prevFCN = -9747.488549  fh=0.85, nbkgComb=1128, 
+prevFCN = -9747.486855  afb=-0.0376, nbkgComb=1125, nsig=330.9, sigGauss_mean=5.278, 
+prevFCN = -9747.488618  afb=-0.04458, bkgCombM_c=-0.8857, 
+prevFCN = -9747.487821  bkgCombM_c=-0.9002, fh=0.872, 
+prevFCN = -9747.489188  fh=0.85, nbkgComb=1128, 
+prevFCN = -9747.488764  nbkgComb=1125, nsig=332.7, 
+prevFCN = -9747.488787   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-9747.49 FROM MIGRAD    STATUS=CONVERGED     266 CALLS         267 TOTAL
+                     EDM=2.8017e-05    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  afb         -4.45760e-02   1.02795e-01   6.98561e-03  -2.73048e-02
+   2  bkgCombM_c  -9.00175e-01   2.23635e-01   2.41143e-03   1.88632e-02
+   3  fh           8.49965e-01   3.26365e-01   1.62306e-02   6.85178e-03
+   4  nbkgComb     1.12511e+03   4.24133e+01   1.06577e-03  -7.33792e-03
+   5  nsig         3.30868e+02   3.17098e+01   1.66428e-03  -7.00118e-02
+   6  sigGauss_mean   5.27758e+00   3.87915e-03   1.29800e-02   1.54329e-02
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  6    ERR DEF=0.5
+  1.060e-02  9.919e-04 -9.250e-04 -2.506e-01  2.509e-01 -3.110e-05 
+  9.919e-04  5.004e-02 -5.853e-03 -1.675e+00  1.677e+00 -1.805e-04 
+ -9.250e-04 -5.853e-03  1.087e-01  1.367e+00 -1.369e+00  1.828e-04 
+ -2.506e-01 -1.675e+00  1.367e+00  1.799e+03 -6.741e+02  1.036e-02 
+  2.509e-01  1.677e+00 -1.369e+00 -6.741e+02  1.006e+03 -1.037e-02 
+ -3.110e-05 -1.805e-04  1.828e-04  1.036e-02 -1.037e-02  1.524e-05 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6
+        1  0.10743   1.000  0.043 -0.027 -0.057  0.077 -0.077
+        2  0.30909   0.043  1.000 -0.079 -0.177  0.236 -0.207
+        3  0.19020  -0.027 -0.079  1.000  0.098 -0.131  0.142
+        4  0.50586  -0.057 -0.177  0.098  1.000 -0.501  0.063
+        5  0.52999   0.077  0.236 -0.131 -0.501  1.000 -0.084
+        6  0.25139  -0.077 -0.207  0.142  0.063 -0.084  1.000
+nsig=330.9, sigGauss_mean=5.278,  **********
+ **    7 **SET ERR         0.5
+ **********
+ **********
+ **    8 **SET PRINT           1
+ **********
+ **********
+ **    9 **HESSE        3000
+ **********
+
+prevFCN = -9747.493586  afb=-0.04318, 
+prevFCN = -9747.493531  afb=-0.04597, 
+prevFCN = -9747.493454  afb=-0.04458, bkgCombM_c=-0.8996, 
+prevFCN = -9747.49358  bkgCombM_c=-0.9008, 
+prevFCN = -9747.493584  bkgCombM_c=-0.9002, fh=0.8508, 
+prevFCN = -9747.493577  fh=0.8491, 
+prevFCN = -9747.493586  fh=0.85, nbkgComb=1125, 
+prevFCN = -9747.493582  nbkgComb=1125, 
+prevFCN = -9747.493581  nbkgComb=1125, nsig=331.2, 
+prevFCN = -9747.493516  nsig=330.5, 
+prevFCN = -9747.493469  nsig=330.9, sigGauss_mean=5.278, 
+prevFCN = -9747.493452  sigGauss_mean=5.278, 
+prevFCN = -9747.493533  afb=-0.0443, sigGauss_mean=5.278, 
+prevFCN = -9747.493589  afb=-0.04486, 
+prevFCN = -9747.493574  afb=-0.04458, bkgCombM_c=-0.9001, 
+prevFCN = -9747.493585  bkgCombM_c=-0.9003, 
+prevFCN = -9747.493586  bkgCombM_c=-0.9002, fh=0.8501, 
+prevFCN = -9747.493584  fh=0.8498, 
+prevFCN = -9747.493586  fh=0.85, nbkgComb=1125, 
+prevFCN = -9747.493585  nbkgComb=1125, 
+prevFCN = -9747.493585  nbkgComb=1125, nsig=330.9, 
+prevFCN = -9747.493586  nsig=330.8, 
+prevFCN = -9747.493577  nsig=330.9, sigGauss_mean=5.278, 
+prevFCN = -9747.493574  sigGauss_mean=5.278, 
+prevFCN = -9747.49359  afb=-0.04318, bkgCombM_c=-0.8996, sigGauss_mean=5.278, 
+prevFCN = -9747.493526  bkgCombM_c=-0.9002, fh=0.8508, 
+prevFCN = -9747.493522  afb=-0.04458, bkgCombM_c=-0.8996, 
+prevFCN = -9747.493572  afb=-0.04318, bkgCombM_c=-0.9002, fh=0.85, nbkgComb=1125, 
+prevFCN = -9747.493527  afb=-0.04458, bkgCombM_c=-0.8996, 
+prevFCN = -9747.493576  bkgCombM_c=-0.9002, fh=0.8508, 
+prevFCN = -9747.493574  afb=-0.04318, fh=0.85, nbkgComb=1125, nsig=331.2, 
+prevFCN = -9747.49347  afb=-0.04458, bkgCombM_c=-0.8996, 
+prevFCN = -9747.493516  bkgCombM_c=-0.9002, fh=0.8508, 
+prevFCN = -9747.493505  fh=0.85, nbkgComb=1125, 
+prevFCN = -9747.493495  afb=-0.04318, nbkgComb=1125, nsig=330.9, sigGauss_mean=5.278, 
+prevFCN = -9747.493385  afb=-0.04458, bkgCombM_c=-0.8996, 
+prevFCN = -9747.49344  bkgCombM_c=-0.9002, fh=0.8508, 
+prevFCN = -9747.493449  fh=0.85, nbkgComb=1125, 
+prevFCN = -9747.493449  nbkgComb=1125, nsig=331.2, 
+prevFCN = -9747.493381   COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-9747.49 FROM HESSE     STATUS=OK             40 CALLS         307 TOTAL
+                     EDM=2.79337e-05    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  afb         -4.45760e-02   1.02813e-01   1.39712e-03  -4.45908e-02
+   2  bkgCombM_c  -9.00175e-01   2.23585e-01   9.64571e-05   9.59720e-01
+   3  fh           8.49965e-01   3.26107e-01   6.49224e-04  -4.48214e-01
+   4  nbkgComb     1.12511e+03   4.24222e+01   4.26307e-05  -6.75086e-01
+   5  nsig         3.30868e+02   3.17078e+01   3.32855e-04  -9.87345e-01
+   6  sigGauss_mean   5.27758e+00   3.87754e-03   2.59600e-03  -1.21448e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  6    ERR DEF=0.5
+  1.061e-02  1.007e-03 -8.810e-04 -2.586e-01  2.586e-01 -3.097e-05 
+  1.007e-03  5.001e-02 -5.699e-03 -1.671e+00  1.671e+00 -1.797e-04 
+ -8.810e-04 -5.699e-03  1.085e-01  1.318e+00 -1.318e+00  1.803e-04 
+ -2.586e-01 -1.671e+00  1.318e+00  1.800e+03 -6.747e+02  1.007e-02 
+  2.586e-01  1.671e+00 -1.318e+00 -6.747e+02  1.006e+03 -1.007e-02 
+ -3.097e-05 -1.797e-04  1.803e-04  1.007e-02 -1.007e-02  1.523e-05 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6
+        1  0.10899   1.000  0.044 -0.026 -0.059  0.079 -0.077
+        2  0.30843   0.044  1.000 -0.077 -0.176  0.236 -0.206
+        3  0.18584  -0.026 -0.077  1.000  0.094 -0.126  0.140
+        4  0.50617  -0.059 -0.176  0.094  1.000 -0.502  0.061
+        5  0.52991   0.079  0.236 -0.126 -0.502  1.000 -0.081
+        6  0.24993  -0.077 -0.206  0.140  0.061 -0.081  1.000
+nsig=330.9, sigGauss_mean=5.278,  **********
+ **   10 **MINOS        3000           1
+ **********
+afb=0.05824, bkgCombM_c=-0.8904, fh=0.8414, nbkgComb=1123, nsig=333.4, sigGauss_mean=5.277, 
+prevFCN = -9746.995373  bkgCombM_c=-0.8892, 
+prevFCN = -9746.995332  bkgCombM_c=-0.8916, 
+prevFCN = -9746.995385  bkgCombM_c=-0.8904, fh=0.8432, 
+prevFCN = -9746.995213  fh=0.8397, 
+prevFCN = -9746.995504  fh=0.8414, nbkgComb=1123, 
+prevFCN = -9746.995435  nbkgComb=1122, 
+prevFCN = -9746.995282  nbkgComb=1123, nsig=334.1, 
+prevFCN = -9746.994089  nsig=332.6, 
+prevFCN = -9746.995913  nsig=335.2, 
+prevFCN = -9746.990771  nsig=331.5, 
+prevFCN = -9746.995328  nsig=333.4, sigGauss_mean=5.277, 
+prevFCN = -9746.994806  sigGauss_mean=5.277, 
+prevFCN = -9746.995196  bkgCombM_c=-0.8934, fh=0.8344, nbkgComb=1124, nsig=332, sigGauss_mean=5.277, 
+prevFCN = -9746.996884  bkgCombM_c=-0.8818, 
+prevFCN = -9746.995394  bkgCombM_c=-0.9051, 
+prevFCN = -9746.995404  bkgCombM_c=-0.8934, fh=0.8519, 
+prevFCN = -9746.995407  fh=0.817, 
+prevFCN = -9746.995475  fh=0.8344, nbkgComb=1126, 
+prevFCN = -9746.995402  nbkgComb=1122, 
+prevFCN = -9746.99539  nbkgComb=1124, nsig=333.8, 
+prevFCN = -9746.99456  nsig=330.1, 
+prevFCN = -9746.99457  nsig=332, sigGauss_mean=5.278, 
+prevFCN = -9746.994549  sigGauss_mean=5.277, 
+prevFCN = -9746.994588  afb=-0.1474, bkgCombM_c=-0.91, fh=0.8585, nbkgComb=1128, nsig=328.4, sigGauss_mean=5.278, 
+prevFCN = -9746.992639  bkgCombM_c=-0.8954, 
+prevFCN = -9746.989951  bkgCombM_c=-0.9246, 
+prevFCN = -9746.990623  bkgCombM_c=-0.91, fh=0.881, 
+prevFCN = -9746.988233  fh=0.8363, 
+prevFCN = -9746.99217  fh=0.8585, nbkgComb=1130, 
+prevFCN = -9746.991301  nbkgComb=1125, 
+prevFCN = -9746.98932  nbkgComb=1128, nsig=330.2, 
+prevFCN = -9746.987941  nsig=326.5, 
+prevFCN = -9746.992699  nsig=328.4, sigGauss_mean=5.278, 
+prevFCN = -9746.989848  sigGauss_mean=5.278, 
+prevFCN = -9746.990782  bkgCombM_c=-0.9131, fh=0.8507, nbkgComb=1129, nsig=326.9, sigGauss_mean=5.278, 
+prevFCN = -9746.994256  bkgCombM_c=-0.8986, 
+prevFCN = -9746.991946  bkgCombM_c=-0.9276, 
+prevFCN = -9746.991904  bkgCombM_c=-0.9131, fh=0.8726, 
+prevFCN = -9746.992057  fh=0.829, 
+prevFCN = -9746.991914  fh=0.8507, nbkgComb=1132, 
+prevFCN = -9746.991914  nbkgComb=1127, 
+prevFCN = -9746.99195  nbkgComb=1129, nsig=328.7, 
+prevFCN = -9746.991935  nsig=325.1, 
+prevFCN = -9746.991938  nsig=326.9, sigGauss_mean=5.278, 
+prevFCN = -9746.99197  sigGauss_mean=5.278, 
+prevFCN = -9746.99191   FCN=-9747.49 FROM MINOS     STATUS=SUCCESSFUL     46 CALLS         353 TOTAL
+                     EDM=2.79337e-05    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                  PARABOLIC         MINOS ERRORS        
+  NO.   NAME      VALUE            ERROR      NEGATIVE      POSITIVE   
+   1  afb         -4.45760e-02   1.02813e-01  -1.02882e-01   1.03153e-01
+   2  bkgCombM_c  -9.00175e-01   2.23585e-01                            
+   3  fh           8.49965e-01   3.26107e-01                            
+   4  nbkgComb     1.12511e+03   4.24222e+01                            
+   5  nsig         3.30868e+02   3.17078e+01                            
+   6  sigGauss_mean   5.27758e+00   3.87754e-03                            
+                               ERR DEF= 0.5
+ **********
+ **   11 **MINOS        3000           3
+ **********
+afb=-0.04725, bkgCombM_c=-0.9175, fh=1.176, nbkgComb=1129, nsig=326.9, sigGauss_mean=5.278, 
+prevFCN = -9746.944802  afb=-0.04446, 
+prevFCN = -9746.944678  afb=-0.05004, 
+prevFCN = -9746.944145  afb=-0.04725, bkgCombM_c=-0.9031, 
+prevFCN = -9746.94203  bkgCombM_c=-0.932, 
+prevFCN = -9746.942914  bkgCombM_c=-0.9175, nbkgComb=1132, 
+prevFCN = -9746.943719  nbkgComb=1127, 
+prevFCN = -9746.941233  nbkgComb=1129, nsig=328.7, 
+prevFCN = -9746.939397  nsig=325.1, 
+prevFCN = -9746.945553  nsig=326.9, sigGauss_mean=5.278, 
+prevFCN = -9746.942716  sigGauss_mean=5.278, 
+prevFCN = -9746.942233  afb=-0.04683, bkgCombM_c=-0.9226, nbkgComb=1131, nsig=324.9, sigGauss_mean=5.278, 
+prevFCN = -9746.9471  afb=-0.04003, 
+prevFCN = -9746.944771  afb=-0.05364, 
+prevFCN = -9746.944814  afb=-0.04683, bkgCombM_c=-0.9082, 
+prevFCN = -9746.944811  bkgCombM_c=-0.9371, 
+prevFCN = -9746.944722  bkgCombM_c=-0.9226, nbkgComb=1134, 
+prevFCN = -9746.944754  nbkgComb=1129, 
+prevFCN = -9746.9448  nbkgComb=1131, nsig=326.7, 
+prevFCN = -9746.944772  nsig=323.1, 
+prevFCN = -9746.944794  nsig=324.9, sigGauss_mean=5.278, 
+prevFCN = -9746.944812  sigGauss_mean=5.278, 
+prevFCN = -9746.944761  fh=1.162, sigGauss_mean=5.278, 
+prevFCN = -9746.99572  afb=-0.04, 
+prevFCN = -9746.993363  afb=-0.05366, 
+prevFCN = -9746.993443  afb=-0.04683, bkgCombM_c=-0.9082, 
+prevFCN = -9746.993549  bkgCombM_c=-0.9371, 
+prevFCN = -9746.993242  bkgCombM_c=-0.9226, nbkgComb=1134, 
+prevFCN = -9746.993166  nbkgComb=1129, 
+prevFCN = -9746.993626  nbkgComb=1131, nsig=326.7, 
+prevFCN = -9746.993911  nsig=323.1, 
+prevFCN = -9746.992881  nsig=324.9, sigGauss_mean=5.278, 
+prevFCN = -9746.993008  sigGauss_mean=5.278, 
+prevFCN = -9746.993783  afb=-0.04674, bkgCombM_c=-0.9213, nbkgComb=1131, nsig=325.2, sigGauss_mean=5.278, 
+prevFCN = -9746.995815  afb=-0.0399, 
+prevFCN = -9746.993483  afb=-0.05358, 
+prevFCN = -9746.993494  afb=-0.04674, bkgCombM_c=-0.9068, 
+prevFCN = -9746.99349  bkgCombM_c=-0.9357, 
+prevFCN = -9746.993497  bkgCombM_c=-0.9213, nbkgComb=1133, 
+prevFCN = -9746.993491  nbkgComb=1128, 
+prevFCN = -9746.993492  nbkgComb=1131, nsig=327.1, 
+prevFCN = -9746.993492  nsig=323.4, 
+prevFCN = -9746.993488  nsig=325.2, sigGauss_mean=5.278, 
+prevFCN = -9746.993486  sigGauss_mean=5.278, 
+prevFCN = -9746.993493  afb=-0.0419, bkgCombM_c=-0.8829, fh=0.5239, nbkgComb=1121, nsig=334.9, sigGauss_mean=5.277, 
+prevFCN = -9747.049222  afb=-0.03506, 
+prevFCN = -9747.047641  afb=-0.04874, 
+prevFCN = -9747.046454  afb=-0.0419, bkgCombM_c=-0.8686, 
+prevFCN = -9747.046555  bkgCombM_c=-0.8973, 
+prevFCN = -9747.047374  bkgCombM_c=-0.8829, nbkgComb=1124, 
+prevFCN = -9747.047997  nbkgComb=1119, 
+prevFCN = -9747.045813  nbkgComb=1121, nsig=336.7, 
+prevFCN = -9747.044221  nsig=333, 
+prevFCN = -9747.049535  nsig=334.9, sigGauss_mean=5.277, 
+prevFCN = -9747.047227  sigGauss_mean=5.277, 
+prevFCN = -9747.046523  afb=-0.04151, bkgCombM_c=-0.8873, nbkgComb=1123, nsig=333.1, sigGauss_mean=5.277, 
+prevFCN = -9747.050988  afb=-0.03444, 
+prevFCN = -9747.048675  afb=-0.04858, 
+prevFCN = -9747.048682  afb=-0.04151, bkgCombM_c=-0.8728, 
+prevFCN = -9747.048575  bkgCombM_c=-0.9019, 
+prevFCN = -9747.048736  bkgCombM_c=-0.8873, nbkgComb=1125, 
+prevFCN = -9747.048693  nbkgComb=1120, 
+prevFCN = -9747.048636  nbkgComb=1123, nsig=335, 
+prevFCN = -9747.04869  nsig=331.3, 
+prevFCN = -9747.048649  nsig=333.1, sigGauss_mean=5.277, 
+prevFCN = -9747.048612  sigGauss_mean=5.277, 
+prevFCN = -9747.048731  fh=0.5034, sigGauss_mean=5.277, 
+prevFCN = -9746.996333  afb=-0.03442, 
+prevFCN = -9746.994086  afb=-0.04861, 
+prevFCN = -9746.993939  afb=-0.04151, bkgCombM_c=-0.8728, 
+prevFCN = -9746.993974  bkgCombM_c=-0.9019, 
+prevFCN = -9746.994043  bkgCombM_c=-0.8873, nbkgComb=1125, 
+prevFCN = -9746.994034  nbkgComb=1120, 
+prevFCN = -9746.993984  nbkgComb=1123, nsig=335, 
+prevFCN = -9746.994038  nsig=331.3, 
+prevFCN = -9746.993981  nsig=333.1, sigGauss_mean=5.277, 
+prevFCN = -9746.993471  sigGauss_mean=5.277, 
+prevFCN = -9746.994547  afb=-0.04134, bkgCombM_c=-0.8871, nbkgComb=1123, nsig=333.1, sigGauss_mean=5.277, 
+prevFCN = -9746.996365  afb=-0.03424, 
+prevFCN = -9746.994047  afb=-0.04844, 
+prevFCN = -9746.994036  afb=-0.04134, bkgCombM_c=-0.8726, 
+prevFCN = -9746.994043  bkgCombM_c=-0.9016, 
+prevFCN = -9746.994041  bkgCombM_c=-0.8871, nbkgComb=1125, 
+prevFCN = -9746.994042  nbkgComb=1120, 
+prevFCN = -9746.994041  nbkgComb=1123, nsig=335, 
+prevFCN = -9746.994042  nsig=331.3, 
+prevFCN = -9746.994041  nsig=333.1, sigGauss_mean=5.277, 
+prevFCN = -9746.994041  sigGauss_mean=5.277, 
+prevFCN = -9746.994044   FCN=-9747.49 FROM MINOS     STATUS=SUCCESSFUL     88 CALLS         441 TOTAL
+                     EDM=2.79337e-05    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                  PARABOLIC         MINOS ERRORS        
+  NO.   NAME      VALUE            ERROR      NEGATIVE      POSITIVE   
+   1  afb         -4.45760e-02   1.02813e-01  -1.02882e-01   1.03153e-01
+   2  bkgCombM_c  -9.00175e-01   2.23585e-01                            
+   3  fh           8.49965e-01   3.26107e-01  -3.47653e-01   3.12578e-01
+   4  nbkgComb     1.12511e+03   4.24222e+01                            
+   5  nsig         3.30868e+02   3.17078e+01                            
+   6  sigGauss_mean   5.27758e+00   3.87754e-03                            
+                               ERR DEF= 0.5
+afb=-0.04458, bkgCombM_c=-0.9002, fh=0.85, nbkgComb=1125, nsig=330.9, sigGauss_mean=5.278, [#1] INFO:Minization -- RooMinimizer::optimizeConst: deactivating const optimization
+
+  RooFitResult: minimized FCN value: -9747, estimated distance to minimum: 2.793e-05
+                covariance matrix quality: Full, accurate covariance matrix
+                Status : MINIMIZE=0 HESSE=0 MINOS=0 
+
+    Floating Parameter    FinalValue +/-  Error   
+  --------------------  --------------------------
+                   afb   -4.4576e-02 +/-  1.03e-01
+            bkgCombM_c   -9.0017e-01 +/-  2.24e-01
+                    fh    8.4997e-01 +/-  3.26e-01
+              nbkgComb    1.1251e+03 +/-  4.24e+01
+                  nsig    3.3087e+02 +/-  3.17e+01
+         sigGauss_mean    5.2776e+00 +/-  3.88e-03
+
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on Bmass integrates over variables (CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on Bmass integrates over variables (CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on Bmass integrates over variables (CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on Bmass integrates over variables (CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on Bmass integrates over variables (CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on Bmass integrates over variables (CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on Bmass integrates over variables (CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on Bmass integrates over variables (CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on Bmass integrates over variables (CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on Bmass integrates over variables (CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on Bmass integrates over variables (CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on Bmass integrates over variables (CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on Bmass integrates over variables (CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on Bmass integrates over variables (CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(kernel) directly selected PDF components: (f_sig)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(kernel) indirectly selected PDF components: (f_sigM,f_sigMGauss1,f_sigMGauss2,f_sigA)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on Bmass integrates over variables (CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(kernel) directly selected PDF components: (f_sig)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(kernel) indirectly selected PDF components: (f_sigM,f_sigMGauss1,f_sigMGauss2,f_sigA)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on Bmass integrates over variables (CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(kernel) directly selected PDF components: (f_bkgComb)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(kernel) indirectly selected PDF components: (f_bkgCombL,f_bkgCombLGauss,f_bkgCombL_P,f_bkgCombM,Bmass_offset)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on Bmass integrates over variables (CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (5.112,5.112)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (5.138,5.138)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (5.162,5.162)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (5.188,5.188)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (5.212,5.212)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (5.237,5.237)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (5.263,5.263)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (5.287,5.287)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (5.312,5.312)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (5.337,5.337)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (5.362,5.362)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (5.388,5.388)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (5.412,5.412)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (5.438,5.438)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (5.462,5.462)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (5.487,5.487)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (5.513,5.513)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (5.537,5.537)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (5.562,5.562)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (5.587,5.587)
+
+Chi^{2}_mass  = 75.39
+
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on CosThetaL integrates over variables (Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on CosThetaL integrates over variables (Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on CosThetaL integrates over variables (Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on CosThetaL integrates over variables (Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on CosThetaL integrates over variables (Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on CosThetaL integrates over variables (Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on CosThetaL integrates over variables (Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on CosThetaL integrates over variables (Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on CosThetaL integrates over variables (Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on CosThetaL integrates over variables (Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on CosThetaL integrates over variables (Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on CosThetaL integrates over variables (Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on CosThetaL integrates over variables (Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on CosThetaL integrates over variables (Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(kernel) directly selected PDF components: (f_sig)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(kernel) indirectly selected PDF components: (f_sigM,f_sigMGauss1,f_sigMGauss2,f_sigA)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on CosThetaL integrates over variables (Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(kernel) directly selected PDF components: (f_sig)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(kernel) indirectly selected PDF components: (f_sigM,f_sigMGauss1,f_sigMGauss2,f_sigA)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on CosThetaL integrates over variables (Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(kernel) directly selected PDF components: (f_bkgComb)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(kernel) indirectly selected PDF components: (f_bkgCombL,f_bkgCombLGauss,f_bkgCombL_P,f_bkgCombM,Bmass_offset)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(kernel) plot on CosThetaL integrates over variables (Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (-0.95,-0.95)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (-0.85,-0.85)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (-0.75,-0.75)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (-0.65,-0.65)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (-0.55,-0.55)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (-0.45,-0.45)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (-0.35,-0.35)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (-0.25,-0.25)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (-0.15,-0.15)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (-0.05,-0.05)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (0.05,0.05)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (0.15,0.15)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (0.25,0.25)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (0.35,0.35)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (0.45,0.45)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (0.55,0.55)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (0.65,0.65)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (0.75,0.75)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (0.85,0.85)
+[#0] ERROR:InputArguments -- RooCurve::average(bkgComb) invalid range (0.95,0.95)
+
+Chi^{2}_cosl  = 81.42
+
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooAddPdf::kernel
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooProdPdf::f_bkgComb
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooAddPdf::f_bkgCombL
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooGaussian::f_bkgCombLGauss
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::CosThetaL
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::bkgGauss_mean
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::bkgGauss_sigma
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::bkg_frac
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooPolynomial::f_bkgCombL_P
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::bkgCombL_c1
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::bkgCombL_c2
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::bkgCombL_c0
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooExponential::f_bkgCombM
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooAddition::Bmass_offset
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::Bmass
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::offset
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::bkgCombM_c
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::nbkgComb
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooProdPdf::f_sig
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooAddPdf::f_sigM
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooGaussian::f_sigMGauss1
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::sigGauss_mean
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::sigGauss1_sigma
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::sigM_frac
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooGaussian::f_sigMGauss2
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::sigGauss2_sigma
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooGenericPdf::f_sigA
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::fh
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::afb
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::accP0
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::accP1
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::accP2
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::accP3
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::recoP0
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::recoP1
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::recoP2
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::recoP3
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::recoP4
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::recoP5
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::recoP6
+[#1] INFO:ObjectHandling -- RooWorkspace::import(wspace) importing RooRealVar::nsig
+
+>>>>>>>>>> iBin = 1 >>>>>> Iafb_angular2D = -0.0003488 >>>>>> Ifh_angular2D = 0.07071
+7407 entries processed.

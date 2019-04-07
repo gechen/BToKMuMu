@@ -1,0 +1,15 @@
+
+[1mRooFit v3.59 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+RooGaussian::gaus_afb[ x=afb mean=0.00742305 sigma=0.000169779 ] = 0
+RooGaussian::gaus_fh[ x=fh mean=0.0228617 sigma=0.00077756 ] = 0
+INFO		: Enter generating loop
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_sigA_Int[CosThetaL]) using numeric integrator RooIntegrator1D to calculate Int(CosThetaL)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_bkgCombM_Int[Bmass]) using numeric integrator RooIntegrator1D to calculate Int(Bmass)
+0 entries processed.

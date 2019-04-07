@@ -1,0 +1,67 @@
+
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+INFO		: bounded fh=+0.102, bounded afb=+0.048
+ FCN=106.982 FROM HESSE     STATUS=NOT POSDEF     23 CALLS         646 TOTAL
+                     EDM=3.00157e-08    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant    -7.68371e+03   3.99294e+00   1.83194e-03   1.89220e-05
+   2  Coefficient   1.29853e+04   6.74570e+00   3.09594e-03  -1.21164e-05
+   3  Mean         2.11094e+03   1.04565e+00   5.03287e-04  -6.52809e-05
+   4  Sigma       -2.06125e+03   1.02109e+00   4.91441e-04  -2.13695e-04
+Info in <TH1F::SaveAs>: C++ Macro file: ./Toy/bin8/afb+0477_fh+1015/h_setSummaryAfb.cc has been generated
+Info in <TCanvas::Print>: pdf file ./plots/Toy_data_AFB_bin8.pdf has been created
+ FCN=35.5852 FROM MIGRAD    STATUS=CONVERGED     396 CALLS         397 TOTAL
+                     EDM=9.31579e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant    -1.45287e+00   2.43572e+00   1.23614e-03   9.33559e-04
+   2  Coefficient   1.55200e+01   2.25944e+00   3.08635e-03   2.40254e-04
+   3  Mean         4.26387e-04   3.69477e-04   9.56888e-07   5.71767e-02
+   4  Sigma        4.79221e-03   9.89816e-04   6.27816e-07   1.71121e+00
+Info in <TH1F::SaveAs>: C++ Macro file: ./Toy/bin8/afb+0477_fh+1015/h_setRETAfb.cc has been generated
+Info in <TCanvas::Print>: pdf file ./plots/Toy_data_RET_AFB_bin8.pdf has been created
+ FCN=7.36104e-21 FROM MIGRAD    STATUS=CONVERGED     146 CALLS         147 TOTAL
+                     EDM=3.28901e-10    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     1.00094e+00   1.33729e+00  -0.00000e+00   1.71432e-10
+   2  Coefficient   0.00000e+00   4.42242e+00   0.00000e+00  -8.20163e-06
+   3  Mean         1.50000e-01   6.72534e-01   0.00000e+00  -4.60735e-12
+Info in <TH1F::SaveAs>: C++ Macro file: ./Toy/bin8/afb+0477_fh+1015/h_setPULLAfb.cc has been generated
+Info in <TCanvas::Print>: pdf file ./plots/Toy_data_PULL_AFB_bin8.pdf has been created
+ FCN=127.082 FROM HESSE     STATUS=NOT POSDEF     23 CALLS         638 TOTAL
+                     EDM=3.33838e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     1.67172e+05   3.99065e+00   3.98570e-02   1.18761e-07
+   2  Coefficient  -1.72331e+05   4.11375e+00   4.10869e-02   1.81767e-07
+   3  Mean        -2.90409e+05   1.13986e+02   6.92389e-02   3.04149e-08
+   4  Sigma        1.17769e+06   4.62116e+02   2.80784e-01   1.72081e-08
+Info in <TH1F::SaveAs>: C++ Macro file: ./Toy/bin8/afb+0477_fh+1015/h_setSummaryFh.cc has been generated
+Info in <TCanvas::Print>: pdf file ./plots/Toy_data_FH_bin8.pdf has been created
+Warning in <Fit>: Abnormal termination of minimization.
+ FCN=105.724 FROM MIGRAD    STATUS=FAILED        260 CALLS         261 TOTAL
+                     EDM=95739.7    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     1.04784e+00   1.07592e+00   0.00000e+00  -1.96837e+01
+   2  Coefficient   3.94926e+00   1.10258e+00   0.00000e+00  -8.84718e+00
+   3  Mean         4.30363e-03   1.00011e+00   0.00000e+00  -1.15483e+03
+   4  Sigma       -6.62509e-03   1.00000e+00  -0.00000e+00   4.69228e+03
+Info in <TH1F::SaveAs>: C++ Macro file: ./Toy/bin8/afb+0477_fh+1015/h_setRETFh.cc has been generated
+Info in <TCanvas::Print>: pdf file ./plots/Toy_data_RET_FH_bin8.pdf has been created
+Warning in <Fit>: Abnormal termination of minimization.
+ FCN=0.0140311 FROM MIGRAD    STATUS=CALL LIMIT   1349 CALLS        1350 TOTAL
+                     EDM=4.09551e-06    STRATEGY= 1  ERROR MATRIX UNCERTAINTY  34.3 per cent
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     2.44222e+02   5.38086e+03   9.50458e+00  -2.33016e-05
+   2  Coefficient   6.03898e-01   2.91834e+00   5.41903e-03   9.48859e-02
+   3  Mean         1.86683e-01   5.37924e-01   9.61356e-04  -3.04785e-01
+Info in <TH1F::SaveAs>: C++ Macro file: ./Toy/bin8/afb+0477_fh+1015/h_setPULLFh.cc has been generated
+Info in <TCanvas::Print>: pdf file ./plots/Toy_data_PULL_FH_bin8.pdf has been created
+0 entries processed.

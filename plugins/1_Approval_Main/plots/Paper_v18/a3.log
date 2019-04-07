@@ -1,0 +1,71 @@
+
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+>>>>>>>>>> iBin = 3
+Evaluate reconstruction efficiency for bin#3
+Bin 3 = 1343243; BEta>2.5: 8580
+Reco_3 = 4196 / 1343243 = 0.00312378
+INFO: recoEfficiency_fine(1)=0.003152 +- 0.000908.
+INFO: recoEfficiency_fine(2)=0.002968 +- 0.000469.
+INFO: recoEfficiency_fine(3)=0.004257 +- 0.000400.
+INFO: recoEfficiency_fine(4)=0.003624 +- 0.000291.
+INFO: recoEfficiency_fine(5)=0.003637 +- 0.000246.
+INFO: recoEfficiency_fine(6)=0.003266 +- 0.000204.
+INFO: recoEfficiency_fine(7)=0.003099 +- 0.000180.
+INFO: recoEfficiency_fine(8)=0.002879 +- 0.000163.
+INFO: recoEfficiency_fine(9)=0.002609 +- 0.000148.
+INFO: recoEfficiency_fine(10)=0.002893 +- 0.000152.
+INFO: recoEfficiency_fine(11)=0.002632 +- 0.000145.
+INFO: recoEfficiency_fine(12)=0.002716 +- 0.000150.
+INFO: recoEfficiency_fine(13)=0.003029 +- 0.000167.
+INFO: recoEfficiency_fine(14)=0.003002 +- 0.000177.
+INFO: recoEfficiency_fine(15)=0.003441 +- 0.000209.
+INFO: recoEfficiency_fine(16)=0.003577 +- 0.000243.
+INFO: recoEfficiency_fine(17)=0.004204 +- 0.000314.
+INFO: recoEfficiency_fine(18)=0.004605 +- 0.000416.
+INFO: recoEfficiency_fine(19)=0.004539 +- 0.000585.
+INFO: recoEfficiency_fine(20)=0.004085 +- 0.001053.
+INFO: Efficiency_fine(1)=0.000027 +- 0.000009.
+INFO: Efficiency_fine(2)=0.000035 +- 0.000006.
+INFO: Efficiency_fine(3)=0.000061 +- 0.000007.
+INFO: Efficiency_fine(4)=0.000069 +- 0.000006.
+INFO: Efficiency_fine(5)=0.000071 +- 0.000006.
+INFO: Efficiency_fine(6)=0.000080 +- 0.000006.
+INFO: Efficiency_fine(7)=0.000084 +- 0.000005.
+INFO: Efficiency_fine(8)=0.000081 +- 0.000005.
+INFO: Efficiency_fine(9)=0.000078 +- 0.000005.
+INFO: Efficiency_fine(10)=0.000088 +- 0.000005.
+INFO: Efficiency_fine(11)=0.000081 +- 0.000005.
+INFO: Efficiency_fine(12)=0.000083 +- 0.000005.
+INFO: Efficiency_fine(13)=0.000089 +- 0.000005.
+INFO: Efficiency_fine(14)=0.000081 +- 0.000005.
+INFO: Efficiency_fine(15)=0.000080 +- 0.000006.
+INFO: Efficiency_fine(16)=0.000077 +- 0.000006.
+INFO: Efficiency_fine(17)=0.000067 +- 0.000006.
+INFO: Efficiency_fine(18)=0.000066 +- 0.000007.
+INFO: Efficiency_fine(19)=0.000049 +- 0.000007.
+INFO: Efficiency_fine(20)=0.000028 +- 0.000009.
+ FCN=8.07784 FROM MIGRAD    STATUS=CONVERGED     217 CALLS         218 TOTAL
+                     EDM=1.61134e-14    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.69450e-03   8.02337e-05   7.00980e-08   1.46661e-04
+   2  p1           5.95297e-06   3.64217e-04   1.94076e-07   3.64902e-04
+   3  p2           2.86167e-03   1.44810e-03   3.32239e-07   2.79548e-04
+   4  p3           2.81241e-04   2.05559e-03   4.74227e-07  -1.28911e-04
+   5  p4           2.53509e-03   5.29121e-03   6.15078e-07   2.08204e-04
+   6  p5           8.08800e-04   2.37799e-03   7.53196e-07  -1.66959e-04
+   7  p6          -5.39545e-03   4.79543e-03   8.88437e-07   1.55465e-04
+RECO ERROR MATRIX: 
+                   1             2            3            4            5            6            7       
+RecoErr1  6.43745e-09 -1.6918e-10 -8.24535e-08 1.4003e-09 2.35546e-07 -1.53875e-09 -1.7829e-07 
+RecoErr2  -1.6918e-10 1.32654e-07 1.07227e-08 -6.57946e-07 -5.77014e-08 6.52557e-07 6.21035e-08 
+RecoErr3  -8.24535e-08 1.07227e-08 2.097e-06 -8.10109e-08 -7.21676e-06 9.16856e-08 5.95594e-06 
+RecoErr4  1.4003e-09 -6.57946e-07 -8.10109e-08 4.22544e-06 4.69934e-07 -4.68367e-06 -5.37257e-07 
+RecoErr5  2.35546e-07 -5.77014e-08 -7.21676e-06 4.69934e-07 2.79969e-05 -5.701e-07 -2.47324e-05 
+RecoErr6  -1.53875e-09 6.52557e-07 9.16856e-08 -4.68367e-06 -5.701e-07 5.65484e-06 7.16899e-07 
+RecoErr7  -1.7829e-07 6.21035e-08 5.95594e-06 -5.37257e-07 -2.47324e-05 7.16899e-07 2.29961e-05 
+18428978 entries processed.

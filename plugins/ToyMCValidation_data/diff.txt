@@ -1,0 +1,285 @@
+--- SingleBuToKMuMuFitters.cc	2017-06-30 10:28:51.000000001 +0200
++++ SingleBuToKMuMuFitters_1000Toys.cc	2017-06-28 16:51:37.000000001 +0200
+@@ -2608,8 +2608,8 @@
+ 	RooProdPdf f_bkgComb("f_bkgComb", "f_bckComb",f_bkgCombL, f_bkgCombM);
+ 	cout<<">>>>>>>>>>>>>>>> INFO: f_bkgComb prepared. <<<<<<<<<<<<<<<<<<<<<<"<<endl;
+ 	
+-  RooRealVar nsig("nsig","nsig",5E4,0,6E5);
+-	RooRealVar nbkgComb("nbkgComb","nbkgComb",2E5,0,9E5);
++  RooRealVar nsig("nsig","nsig",2E2,0,4E3);
++	RooRealVar nbkgComb("nbkgComb","nbkgComb",1E3,0,6E3);
+ 	
+ 	RooAddPdf f("kernel","kernel",RooArgList(f_bkgComb,f_sig),RooArgList(nbkgComb,nsig));// no penalty term
+ 	cout<<">>>>>>>>>>>>>>>>>>>>>>>>>>> INFO: f_penalty NOT prepared. <<<<<<<<<<<<<<<<<<<<"<<endl;
+@@ -2619,67 +2619,20 @@
+ 	ROOT::Math::MinimizerOptions::SetDefaultMaxFunctionCalls(10000);
+ 	RooDataSet *data = new RooDataSet("data","data",ch,RooArgSet(Bmass,CosThetaL,Q2),Q2range[iBin],0);
+ 	//RooFitResult *f_fitresult = f.fitTo(*data,Extended(kTRUE),Save(kTRUE), Minimizer("Minuit"), Warnings(1), PrintEvalErrors(3), Verbose(1));	
+-////	RooFitResult *f_fitresult = f.fitTo(*data,Extended(kTRUE),Save(kTRUE), Minimizer("Minuit"), Minos(RooArgSet(afb, fh)), Warnings(1), PrintEvalErrors(3), Verbose(1));	
++	RooFitResult *f_fitresult = f.fitTo(*data,Extended(kTRUE),Save(kTRUE), Minimizer("Minuit"), Minos(RooArgSet(afb, fh)), Warnings(1), PrintEvalErrors(3), Verbose(1));	
+ 	//cout<<"BUGGGGGGGG"<<endl;
+-////   f_fitresult->Print();
+-    // Fitting procedure in TMinuit
+-    double isMigradConverge[2] = {-1,0};
+-    double isMinosValid = -1;
+-    RooAbsReal *nll = f.createNLL(*data,Extended(kTRUE),Offset(kFALSE),NumCPU(1));// Minos and Save are unknown.
+-    RooMinuit minuit(*nll);
+-    printf("INFO\t\t: Start MIGRAD loop\n");
+-    for(int iLoop = 0; iLoop < 10; iLoop++){
+-        isMigradConverge[0] = minuit.migrad();
+-        printf("INFO\t\t: MIGRAD return code=%.0f\n",isMigradConverge[0]);
+-        if (isMigradConverge[0] == 0) break;
+-    }
+-    isMigradConverge[1] = minuit.save()->minNll();
+-    int gKeepParam = 1;
+-    odatacardpath=summarypath;
+-    if (gKeepParam) {
+-        writeParam(iBin, "migrad", isMigradConverge);
+-        double val[4]={0,0,0,0};
+-        val[0] = toBoundedFh( fh.getVal() );
+-//        val[1] = fh.getError();val[2]=fh.getErrorLo();val[3]=fh.getErrorHi();
+-        writeParam(iBin, "fh_migrad", val, 4);
+-        val[0] = toBoundedAfb( afb.getVal(), fh.getVal() );
+-//        val[1] = afb.getError();val[2]=afb.getErrorLo();val[3]=afb.getErrorHi();
+-        writeParam(iBin, "afb_migrad",val, 4);
+-    }
+-    double isHesseValid = minuit.hesse();
+-    // Keep HESSE result as preliminary
+-    if (gKeepParam) {
+-        writeParam(iBin, "hesse", &isHesseValid, 1);
+-        minuit.save();
+-        double val[4]={0,0,0,0};
+-        val[0] = toBoundedFh( fh.getVal() );
+-//        val[1] = fh.getError();val[2]=fh.getErrorLo();val[3]=fh.getErrorHi();
+-        writeParam(iBin, "fh_hesse", val, 4);
+-        val[0] = toBoundedAfb( afb.getVal(), fh.getVal() );
+-//        val[1] = afb.getError();val[2]=afb.getErrorLo();val[3]=afb.getErrorHi();
+-        writeParam(iBin, "afb_hesse",val, 4);
+-    }
+-//    printf("INFO\t\t: Start MINOS loop\n");
+-//    for(int iLoop = 0; iLoop < 3; iLoop++){
+-//        isMinosValid = minuit.minos(RooArgSet(afb,fh,nsig));
+-//        printf("INFO\t\t: MINOS return code=%.0f\n",isMinosValid);
+-//        if (isMinosValid == 0) break;
+-//    }
+-//    if (gKeepParam) {
+-//        writeParam(iBin, "minos", &isMinosValid, 1);
+-//    }
+-    minuit.save();
+-    delete data;
+-    odatacardpath=summarypath;
+-    double val[4]={0,0,0,0};
+-    val[0] = toBoundedFh( fh.getVal() );
+-//    val[1] = fh.getError();val[2]=fh.getErrorLo();val[3]=fh.getErrorHi();
+-    writeParam(iBin, "FC_fh", val, 4);
+-    val[0] = toBoundedAfb( afb.getVal(), fh.getVal() );
+-//    val[1] = afb.getError();val[2]=afb.getErrorLo();val[3]=afb.getErrorHi();
+-    writeParam(iBin, "FC_afb",val, 4);
+-    val[0] = minuit.save()->minNll();
+-    writeParam(iBin, "FC_FCN", val);
++   f_fitresult->Print();
++   delete data;
++   odatacardpath=summarypath;
++   double val[2]={0,0};
++  val[0] = f_fitresult->status();
++  writeParam(iBin,  "migrad",  val, 1);
++  val[0] = f_fitresult->minNll();
++  writeParam(iBin, "FC_FCN", val);
++  val[0] = 3./2. + 3. * atan( fh.getVal()  ) / TMath::Pi();
++  writeParam(iBin,  "FC_fh",  val, 2);
++  val[0] = (1. * atan( afb.getVal() ) / TMath::Pi()) * ( 3./2. + 3. * atan( fh.getVal()  ) / TMath::Pi() ); 
++  writeParam(iBin,  "FC_afb",  val, 2);
+ /*  // map of signal
+   bkgCombM_c.setConstant(kTRUE);
+   offset.setConstant(kTRUE);
+@@ -3662,8 +3615,8 @@
+     int nsigInToys = 0;
+     int nbkgCombInToys = 0;
+     for(int iToy=0; iToy<nToy; iToy++){
+-        nsigInToy[iToy]=rndGenerator->Poisson(nsig*100);
+-        nbkgCombInToy[iToy]=rndGenerator->Poisson(nbkgComb*100);
++        nsigInToy[iToy]=rndGenerator->Poisson(nsig);
++        nbkgCombInToy[iToy]=rndGenerator->Poisson(nbkgComb);
+         nsigInToys+=nsigInToy[iToy];
+         nbkgCombInToys+=nbkgCombInToy[iToy];
+     }
+@@ -3701,11 +3654,10 @@
+     struct stat fiBuff;
+     // Setting
+     TString otoyspath = TString::Format("./Toy/bin%d",iBin);
+-    int nHistBins   = 30;
+-////    if (iBin == 0 || iBin == 1) nHistBins   = 90;
+-////    if (iBin == 10 ) nHistBins   = 600;
+-////    if (iBin == 9  ) nHistBins   = 150;
+-//    if (iBin == 2) nHistBins = 30;
++    int nHistBins   = 300;
++    if (iBin == 0 || iBin == 1) nHistBins   = 90;
++    if (iBin == 10 ) nHistBins   = 600;
++    if (iBin == 9  ) nHistBins   = 150;
+ 
+     // Get parameters for the q2 Bin
+     //iwspacepath="./RootFiles";
+@@ -3723,45 +3675,38 @@
+     owspacepath=TString::Format("%s/afb%+05.0f_fh%+05.0f",otoyspath.Data(),thisAfb*10000,thisFh*10000);
+ ////    if (stat(TString::Format("%s/setSummary.root",owspacepath.Data()).Data(),&fiBuff) == 0) return;
+ 
+-    const double AFB_H[11] = { 0.18, 0.00, 0.012, 0.00, 0.03, 0.00, 0.05, 0.06, 0.07,-0.11, 0.008};
+-    const double AFB_L[11] = {-0.02,-0.08,-0.012, 0.00,-0.03, 0.00,-0.02, 0.02, 0.03,-0.17,-0.004};
+-    const double FH_H[11]  = { 0.50, 1.10, 0.035, 0.00, 0.06, 0.00, 0.07, 0.13, 0.16, 0.50, 0.025};
+-    const double FH_L[11]  = { 0.00, 0.70, 0.000, 0.00, 0.00, 0.00, 0.00, 0.05, 0.06, 0.25, 0.000};
+     TFile *fout = new TFile(TString::Format("%s/setSummary.root",owspacepath.Data()),"RECREATE");
+-    TH1F *h_setSummaryAfb = new TH1F("h_setSummaryAfb", TString::Format("h_afb%+05.0f",thisAfb*10000).Data(), nHistBins*2, AFB_L[iBin],AFB_H[iBin]);
+-    TH1F *h_setSummaryFh  = new TH1F("h_setSummaryFh", TString::Format("h_fh%+05.0f",thisFh*10000).Data(), nHistBins*2, FH_L[iBin], FH_H[iBin]);
+-////    TH1F *h_setSummaryFh  = new TH1F("h_setSummaryFh", TString::Format("h_fh%+05.0f",thisFh*10000).Data(), nHistBins, FH_L[iBin], FH_H[iBin]);  // bin2
+-    const double AFB_H_0[11] = { 0.05, 0.032, 0.010, 0.00, 0.015, 0.00, 0.02, 0.012, 0.015, 0.025, 0.006};
+-    const double AFB_L_0[11] = {-0.07,-0.032,-0.010, 0.00,-0.015, 0.00,-0.02,-0.012,-0.015,-0.025,-0.006};
+-    const double FH_H_0[11]  = { 0.20, 0.10, 0.030, 0.00, 0.040, 0.00, 0.035, 0.05, 0.03, 0.08, 0.02};
+-    const double FH_L_0[11]  = {-0.20,-0.10,-0.001, 0.00,-0.005, 0.00,-0.025,-0.02,-0.03,-0.10,-0.01};
+-    TH1F *h_setRETAfb = new TH1F("h_setRETAfb", TString::Format("h_RET_afb%+05.0f",thisAfb*10000).Data(), nHistBins, AFB_L_0[iBin],AFB_H_0[iBin]);
+-    TH1F *h_setRETFh  = new TH1F("h_setRETFh", TString::Format("h_RET_fh%+05.0f",thisFh*10000).Data(), nHistBins, FH_L_0[iBin], FH_H_0[iBin]);
++    TH1F *h_setSummaryAfb = new TH1F("h_setSummaryAfb", TString::Format("h_afb%+05.0f",thisAfb*10000).Data(), nHistBins, -0.9,0.9);
++    TH1F *h_setSummaryFh  = new TH1F("h_setSummaryFh", TString::Format("h_fh%+05.0f",thisFh*10000).Data(), nHistBins, 0.,3.);
++    TH1F *h_setRETAfb = new TH1F("h_setRETAfb", TString::Format("h_RET_afb%+05.0f",thisAfb*10000).Data(), nHistBins, -0.9,0.9);
++    TH1F *h_setRETFh  = new TH1F("h_setRETFh", TString::Format("h_RET_fh%+05.0f",thisFh*10000).Data(), nHistBins*2,-3.,3.);
+     for(int iToy = 0; iToy<nToy; iToy++){
++        //iwspacepath=TString::Format("%s/afb%+05.0f_fh%+05.0f/set%04d",otoyspath.Data(),thisAfb*10000,thisFh*10000,iToy+1);
+         idatacardpath=TString::Format("%s/afb%+05.0f_fh%+05.0f/set%04d",otoyspath.Data(),thisAfb*10000,thisFh*10000,iToy+1);
+         if (readParam(iBin,"migrad", 0) == 0.){
+-            if (readParam(iBin,"fh_migrad",0) >= 0.000) { 
+-                h_setSummaryFh  ->Fill(readParam(iBin,"fh_migrad",0));
+-                h_setSummaryAfb ->Fill(readParam(iBin,"afb_migrad",0));
+-                h_setRETFh  ->Fill(readParam(iBin,"fh_migrad",0)-fh);
+-                h_setRETAfb ->Fill(readParam(iBin,"afb_migrad",0)-afb);
++            if (readParam(iBin,"FC_fh",0) > 3e-3) { 
++////            if (readParam(iBin,"FC_fh",0) > 1e-3) {  //// bin10
++                h_setSummaryFh  ->Fill(readParam(iBin,"FC_fh",0));
++                h_setSummaryAfb ->Fill(readParam(iBin,"FC_afb",0));
++                h_setRETFh  ->Fill(readParam(iBin,"FC_fh",0)-fh);
++                h_setRETAfb ->Fill(readParam(iBin,"FC_afb",0)-afb);
+             }
+         }
+     }
+-
+-    const double upAfb[11] = { 0.12,-0.02, 0.007, 0.00, 0.01, 0.00, 0.03, 0.045, 0.060,-0.12, 0.005};
+-    const double dnAfb[11] = { 0.01,-0.07,-0.009, 0.00,-0.01, 0.00,-0.01, 0.025, 0.035,-0.16,-0.002};
++    const double upAfb[11] = { 0.50, 0.20, 0.10, 0.00, 0.20, 0.00, 0.15, 0.12, 0.15, 0.07, 0.09};
++    const double dnAfb[11] = {-0.40,-0.30,-0.10, 0.00,-0.20, 0.00,-0.10,-0.05,-0.10,-0.30,-0.09};
++    const double upFh[11]  = { 1.50, 1.50, 0.35, 0.00, 0.30, 0.00, 0.40, 0.30, 0.45, 0.80, 0.15};
++    const double dnFh[11]  = { 0.00, 0.15, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00};
+ 	  TString f1_model_format_0 = "[0] + [1]*exp(-0.5* ( ((x-[2])/[3])**2)) ";
+ 	  TF1 *f1_model = new TF1 ("f1_model", f1_model_format_0, dnAfb[iBin], upAfb[iBin]);
+ 	  f1_model->SetParameter(0,0.);
+-	  f1_model->SetParameter(3,0.15);
+-    if (iBin == 2)  f1_model->SetParameter(3,0.1);
+-    if (iBin == 10)  f1_model->SetParameter(3,0.5);
++	  f1_model->SetParameter(3,10);
+ 	  f1_model->SetParNames("Constant","Coefficient","Mean","Sigma");
+   	TCanvas canvas("canvas");
+   	h_setSummaryAfb->SetMinimum(0.);
++  	h_setSummaryAfb->GetXaxis()->SetRangeUser(dnAfb[iBin]*1.3, upAfb[iBin]*1.3);
+   	h_setSummaryAfb->SetXTitle("Measured A_{FB}");
+-  	h_setSummaryAfb->SetYTitle(TString::Format("Events / %.4f",((AFB_H[iBin]-AFB_L[iBin])/nHistBins/2)));
++  	h_setSummaryAfb->SetYTitle(TString::Format("Events / %.4f",(2./nHistBins)));
+   	h_setSummaryAfb->Draw("PE1");
+   	h_setSummaryAfb->Fit(f1_model,"R"); //// 09-09
+   	f1_model->SetTitle("");
+@@ -3786,47 +3731,29 @@
+     paveText->Draw();
+     h_setSummaryAfb->SaveAs(TString::Format("%s/h_setSummaryAfb.cc",owspacepath.Data()));
+ 	  canvas.Update();
+-	  canvas.Print(TString::Format("./plots/Toy_data_AFB_bin%d.pdf",iBin));
++////	  canvas.Print(TString::Format("./plots/Toy_data_AFB_bin%d.pdf",iBin));
+ 
+-    const double upAfb_0[11] = { 0.04, 0.03, 0.01, 0.00, 0.01, 0.00, 0.02, 0.008, 0.01, 0.02, 0.005};
+-    const double dnAfb_0[11] = {-0.07,-0.03,-0.01, 0.00,-0.01, 0.00,-0.02,-0.012,-0.01,-0.02,-0.005};
+-	  TF1 *f1_model_0 = new TF1 ("f1_model_0", f1_model_format_0, dnAfb_0[iBin], upAfb_0[iBin]);
+-	  f1_model_0->SetParNames("Constant","Coefficient","Mean","Sigma");
+-	  f1_model_0->SetParameter(0,0.);
+-	  f1_model_0->SetParameter(3,0.15);
+-    if (iBin == 7)  f1_model_0->SetParameter(3,1);
+-    if (iBin == 2)  f1_model_0->SetParameter(3,1);
+-    if (iBin == 9)  f1_model_0->SetParameter(3,0.01);
+-  	h_setRETAfb->Fit(f1_model_0,"R"); //// 09-09
+   	h_setRETAfb->SetMinimum(0.);
++  	h_setRETAfb->GetXaxis()->SetRangeUser(dnAfb[iBin]-0.15, upAfb[iBin]+0.15);
+   	h_setRETAfb->SetXTitle("Measured A_{FB} - True A_{FB}");
+-  	h_setRETAfb->SetYTitle(TString::Format("Events / %.4f",((upAfb_0[iBin]-dnAfb_0[iBin])/nHistBins)));
++  	h_setRETAfb->SetYTitle(TString::Format("Events / %.4f",(2./nHistBins)));
+   	h_setRETAfb->Draw("PE1");
+-  	f1_model_0->Draw(" SAME ");
+   	t1->DrawLatex(.15,.90,TString::Format("CMS Preliminary"));
+   	t1->DrawLatex(.63,.80,TString::Format("True A_{FB}: %+.4f",afb));
+     paveText->Draw();
+-    t2->DrawLatex(.17,.80,TString::Format("Mean : %.4f #pm %.4f",f1_model_0->GetParameter(2), f1_model_0->GetParError(2)));
+-    t2->DrawLatex(.17,.74,TString::Format("Sigma: %.4f #pm %.4f",fabs(f1_model_0->GetParameter(3)), f1_model_0->GetParError(3)));
+     h_setRETAfb->SaveAs(TString::Format("%s/h_setRETAfb.cc",owspacepath.Data()));
+ 	  canvas.Update();
+ 	  canvas.Print(TString::Format("./plots/Toy_data_RET_AFB_bin%d.pdf",iBin));
+     
+-    const double upFh[11]  = { 0.40, 0.94, 0.03, 0.00, 0.040, 0.00, 0.06, 0.09, 0.13, 0.44, 0.025};
+-    const double dnFh[11]  = { 0.05, 0.77, 0.00, 0.00, 0.001, 0.00, 0.00, 0.06, 0.07, 0.29, 0.000};
+ 	  TF1 *f2_model = new TF1 ("f2_model", f1_model_format_0, dnFh[iBin], upFh[iBin]);
+ 	  f2_model->SetParameter(0,-1.);
+-	  f2_model->SetParameter(2,0.00);
+-	  f2_model->SetParameter(3,0.2);
+-    if (iBin == 1)  f2_model->SetParameter(3,2);
+-    if (iBin == 4)  f2_model->SetParameter(2,0.004);
+-    if (iBin == 2)  f2_model->SetParameter(2,0.001);
+-    if (iBin == 2)  f2_model->SetParameter(3,0.01);
++	  f2_model->SetParameter(2,0.2);
++	  f2_model->SetParameter(3,10);
+ 	  f2_model->SetParNames("Constant","Coefficient","Mean","Sigma");
+   	h_setSummaryFh->SetMinimum(0.);
++  	h_setSummaryFh->GetXaxis()->SetRangeUser(0.0, upFh[iBin]*1.3);
+   	h_setSummaryFh->SetXTitle("Measured F_{H}");
+-  	h_setSummaryFh->SetYTitle(TString::Format("Events / %.4f",((FH_H[iBin]-FH_L[iBin])/nHistBins/2)));
+-////  	h_setSummaryFh->SetYTitle(TString::Format("Events / %.4f",((FH_H[iBin]-FH_L[iBin])/nHistBins)));  // bin2
++  	h_setSummaryFh->SetYTitle(TString::Format("Events / %.4f",(3./nHistBins)));
+   	h_setSummaryFh->Draw("PE1");
+   	h_setSummaryFh->Fit(f2_model,"R"); //// 09-09
+   	f2_model->SetTitle("");
+@@ -3840,28 +3767,15 @@
+     paveText->Draw();
+ 	  canvas.Update();
+     h_setSummaryFh->SaveAs(TString::Format("%s/h_setSummaryFh.cc",owspacepath.Data()));
+-	  canvas.Print(TString::Format("./plots/Toy_data_FH_bin%d.pdf",iBin));
++////	  canvas.Print(TString::Format("./plots/Toy_data_FH_bin%d.pdf",iBin));
+ //
+-    const double upFh_0[11]  = { 0.20, 0.10, 0.030, 0.00, 0.036, 0.00, 0.03, 0.04, 0.03, 0.055, 0.02};
+-    const double dnFh_0[11]  = {-0.17,-0.10,-0.000, 0.00,-0.002, 0.00,-0.02,-0.02,-0.03,-0.080,-0.01};
+-	  TF1 *f2_model_0 = new TF1 ("f2_model_0", f1_model_format_0, dnFh_0[iBin], upFh_0[iBin]);
+-	  f2_model_0->SetParameter(0,-1.);
+-	  f2_model_0->SetParameter(2,0.00);
+-	  f2_model_0->SetParameter(3,0.05);
+-    if (iBin == 9)  f2_model_0->SetParameter(3,0.5);
+-    if (iBin == 0)  f2_model_0->SetParameter(3,0.01);
+-    if (iBin == 2)  f2_model_0->SetParameter(3,0.01);
+-	  f2_model_0->SetParNames("Constant","Coefficient","Mean","Sigma");
+-  	h_setRETFh->Fit(f2_model_0,"R"); //// 09-09
++  	h_setRETFh->GetXaxis()->SetRangeUser(-1*fh*1.5, upFh[iBin]*1.3);
+   	h_setRETFh->SetXTitle("Measured F_{H} - True F_{H}");
+-  	h_setRETFh->SetYTitle(TString::Format("Events / %.4f",((upFh_0[iBin]-dnFh_0[iBin])/nHistBins)));
++  	h_setRETFh->SetYTitle(TString::Format("Events / %.4f",(2./nHistBins)));
+   	h_setRETFh->Draw("PE1");
+-  	f2_model_0->Draw(" SAME ");
+   	t1->DrawLatex(.15,.90,TString::Format("CMS Preliminary"));
+   	t1->DrawLatex(.63,.80,TString::Format("True F_{H}: %+.4f",fh));
+     paveText->Draw();
+-    t2->DrawLatex(.17,.80,TString::Format("Mean : %.4f #pm %.4f",f2_model_0->GetParameter(2), f2_model_0->GetParError(2)));
+-    t2->DrawLatex(.17,.74,TString::Format("Sigma: %.4f #pm %.4f",fabs(f2_model_0->GetParameter(3)), f2_model_0->GetParError(3)));
+ 	  canvas.Update();
+     h_setRETFh->SaveAs(TString::Format("%s/h_setRETFh.cc",owspacepath.Data()));
+ 	  canvas.Print(TString::Format("./plots/Toy_data_RET_FH_bin%d.pdf",iBin));
+@@ -4097,10 +4011,10 @@
+         genToySignal(iBin, nsig*100, afb,fh); // 
+         genToyCombBkg(iBin,nbkgComb*100);
+     } else if (func == "createValiToys"){
+-        nToy = 200;
++        nToy = 1000;
+         createValiToys(iBin,nToy);
+     }else if (func == "ValiScan"){
+-        nToy = 200;
++        nToy = 1000;
+         int whichBin=-1;
+         whichBin=iBin;
+         harvestValiFitResults(whichBin,nToy);

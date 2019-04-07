@@ -1,0 +1,20 @@
+
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+>>>>>>>>>> iBin = 4
+Evaluate reconstruction efficiency for bin#4
+ FCN=17.4364 FROM MIGRAD    STATUS=CONVERGED     231 CALLS         232 TOTAL
+                     EDM=7.31014e-20    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.19188e-03   1.33994e-05   1.58446e-08  -5.60556e-06
+   2  p1           7.40586e-06   5.64398e-05   3.72297e-08  -4.77135e-07
+   3  p2           8.19295e-04   2.12526e-04   5.61724e-08   1.58116e-07
+   4  p3           2.97808e-04   2.78911e-04   7.32493e-08   8.48779e-07
+   5  p4          -1.59902e-03   6.96868e-04   8.90083e-08   9.97861e-07
+   6  p5          -9.04481e-05   2.91489e-04   1.03848e-07  -1.71054e-07
+   7  p6           2.92178e-04   5.80635e-04   1.18041e-07   7.52430e-07
+18428978 entries processed.

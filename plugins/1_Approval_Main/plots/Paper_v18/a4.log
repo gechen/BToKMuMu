@@ -1,0 +1,71 @@
+
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+
+>>>>>>>>>> iBin = 4
+Evaluate reconstruction efficiency for bin#4
+Bin 4 = 2703291; BEta>2.5: 15050
+Reco_4 = 125357 / 2703291 = 0.046372
+INFO: recoEfficiency_fine(1)=0.048787 +- 0.002101.
+INFO: recoEfficiency_fine(2)=0.055000 +- 0.001238.
+INFO: recoEfficiency_fine(3)=0.060065 +- 0.000948.
+INFO: recoEfficiency_fine(4)=0.056139 +- 0.000747.
+INFO: recoEfficiency_fine(5)=0.052510 +- 0.000626.
+INFO: recoEfficiency_fine(6)=0.047603 +- 0.000534.
+INFO: recoEfficiency_fine(7)=0.044853 +- 0.000478.
+INFO: recoEfficiency_fine(8)=0.040710 +- 0.000430.
+INFO: recoEfficiency_fine(9)=0.040129 +- 0.000411.
+INFO: recoEfficiency_fine(10)=0.038005 +- 0.000394.
+INFO: recoEfficiency_fine(11)=0.037786 +- 0.000392.
+INFO: recoEfficiency_fine(12)=0.040146 +- 0.000411.
+INFO: recoEfficiency_fine(13)=0.042075 +- 0.000437.
+INFO: recoEfficiency_fine(14)=0.045610 +- 0.000482.
+INFO: recoEfficiency_fine(15)=0.050476 +- 0.000549.
+INFO: recoEfficiency_fine(16)=0.056082 +- 0.000644.
+INFO: recoEfficiency_fine(17)=0.064510 +- 0.000795.
+INFO: recoEfficiency_fine(18)=0.070133 +- 0.001021.
+INFO: recoEfficiency_fine(19)=0.072211 +- 0.001401.
+INFO: recoEfficiency_fine(20)=0.076468 +- 0.002638.
+INFO: Efficiency_fine(1)=0.000650 +- 0.000065.
+INFO: Efficiency_fine(2)=0.000863 +- 0.000047.
+INFO: Efficiency_fine(3)=0.001206 +- 0.000046.
+INFO: Efficiency_fine(4)=0.001178 +- 0.000038.
+INFO: Efficiency_fine(5)=0.001223 +- 0.000035.
+INFO: Efficiency_fine(6)=0.001231 +- 0.000031.
+INFO: Efficiency_fine(7)=0.001284 +- 0.000030.
+INFO: Efficiency_fine(8)=0.001221 +- 0.000027.
+INFO: Efficiency_fine(9)=0.001238 +- 0.000027.
+INFO: Efficiency_fine(10)=0.001200 +- 0.000025.
+INFO: Efficiency_fine(11)=0.001185 +- 0.000025.
+INFO: Efficiency_fine(12)=0.001201 +- 0.000026.
+INFO: Efficiency_fine(13)=0.001222 +- 0.000027.
+INFO: Efficiency_fine(14)=0.001275 +- 0.000030.
+INFO: Efficiency_fine(15)=0.001360 +- 0.000034.
+INFO: Efficiency_fine(16)=0.001376 +- 0.000038.
+INFO: Efficiency_fine(17)=0.001369 +- 0.000044.
+INFO: Efficiency_fine(18)=0.001236 +- 0.000050.
+INFO: Efficiency_fine(19)=0.001210 +- 0.000063.
+INFO: Efficiency_fine(20)=0.001096 +- 0.000103.
+ FCN=24.1646 FROM MIGRAD    STATUS=CONVERGED     202 CALLS         203 TOTAL
+                     EDM=1.89208e-11    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.82030e-02   2.13872e-04   3.08846e-07   1.72001e-02
+   2  p1           9.38932e-04   9.59883e-04   8.31556e-07  -4.63456e-04
+   3  p2           5.43263e-02   3.76333e-03   1.39621e-06   5.28342e-03
+   4  p3           7.19906e-03   5.28756e-03   1.96985e-06   2.87395e-03
+   5  p4           1.50981e-02   1.34808e-02   2.53686e-06   1.73089e-03
+   6  p5           7.92164e-03   6.03197e-03   3.09177e-06   2.71488e-03
+   7  p6          -5.25475e-02   1.20600e-02   3.63345e-06   5.46992e-04
+RECO ERROR MATRIX: 
+                   1             2            3            4            5            6            7       
+RecoErr1  4.57413e-08 -2.00328e-09 -5.71185e-07 1.49353e-08 1.60084e-06 -1.91901e-08 -1.19544e-06 
+RecoErr2  -2.00328e-09 9.21375e-07 1.12141e-07 -4.47114e-06 -5.69673e-07 4.37944e-06 6.05692e-07 
+RecoErr3  -5.71185e-07 1.12141e-07 1.41626e-05 -7.91093e-07 -4.78325e-05 9.87719e-07 3.89811e-05 
+RecoErr4  1.49353e-08 -4.47114e-06 -7.91093e-07 2.79583e-05 4.45977e-06 -3.05931e-05 -5.02299e-06 
+RecoErr5  1.60084e-06 -5.69673e-07 -4.78325e-05 4.45977e-06 0.000181732 -5.75011e-06 -0.000158492 
+RecoErr6  -1.91901e-08 4.37944e-06 9.87719e-07 -3.05931e-05 -5.75011e-06 3.63846e-05 6.81104e-06 
+RecoErr7  -1.19544e-06 6.05692e-07 3.89811e-05 -5.02299e-06 -0.000158492 6.81104e-06 0.000145444 
+18428978 entries processed.

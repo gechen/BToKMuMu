@@ -1,0 +1,85 @@
+--- SingleBuToKMuMuFitters.cc	2017-02-01 18:45:40.000000001 +0100
++++ SingleBuToKMuMuFitters_50.cc	2017-02-01 18:44:19.000000001 +0100
+@@ -3647,53 +3647,7 @@
+     return;
+ }//}}}
+ 
+-void harvestValiFitResults(int iBin, int nToy=500, bool contourMode=false)
+-{//{{{
+-    // Buffers for checking directory/FILE
+-    struct stat fiBuff;
+-    // Setting
+-    TString otoyspath = TString::Format("./Toy/bin%d",iBin);
+-    const int    nHistBins   = 2000;
+-
+-    // Get parameters for the q2 Bin
+-    //iwspacepath="./RootFiles";
+-    TFile *f_wspace = new TFile(TString::Format("%s/wspace_pdf_bin%d.root",iwspacepath.Data(),iBin));
+-    RooWorkspace *wspace = (RooWorkspace*)f_wspace->Get("wspace");
+-    if (!wspace) return;
+-    double  fh  = wspace->var("fh")->getVal();
+-    double  afb = wspace->var("afb")->getVal(); 
+-    printf("INFO\t\t: bounded fh=%+.3f, bounded afb=%+.3f\n",fh,afb);
+-
+-    // Loop over phase space
+-    double thisAfb = afb;
+-    double thisFh = fh;
+-    //if (stat(TString::Format("%s/afb%+05.0f_fh%+05.0f",otoyspath.Data(),thisAfb*10000,thisFh*10000).Data(),&fiBuff) != 0) continue;
+-    owspacepath=TString::Format("%s/afb%+05.0f_fh%+05.0f",otoyspath.Data(),thisAfb*10000,thisFh*10000);
+-    //if (stat(TString::Format("%s/setSummary.root",owspacepath.Data()).Data(),&fiBuff) == 0) continue;
+-
+-    TFile *fout = new TFile(TString::Format("%s/setSummary.root",owspacepath.Data()),"RECREATE");
+-    TH1F *h_setSummaryAfb = new TH1F("h_setSummaryAfb", TString::Format("h_afb%+05.0f",thisAfb*10000).Data(), nHistBins, -1.,1.);
+-    TH1F *h_setSummaryFh  = new TH1F("h_setSummaryFh", TString::Format("h_fh%+05.0f",thisFh*10000).Data(), nHistBins, 0.,3.);
+-
+-    for(int iToy = 0; iToy<nToy; iToy++){
+-        //iwspacepath=TString::Format("%s/afb%+05.0f_fh%+05.0f/set%04d",otoyspath.Data(),thisAfb*10000,thisFh*10000,iToy+1);
+-        idatacardpath=TString::Format("%s/afb%+05.0f_fh%+05.0f/set%04d",otoyspath.Data(),thisAfb*10000,thisFh*10000,iToy+1);
+-        if (readParam(iBin,"migrad", 0) == 0.){
+-            if (readParam(iBin,"FC_fh",0) > 3e-3) { 
+-            h_setSummaryFh  ->Fill(readParam(iBin,"FC_fh",0));
+-            h_setSummaryAfb ->Fill(readParam(iBin,"FC_afb",0));
+-            }
+-        }
+-    }
+-    h_setSummaryAfb->Draw();
+-    h_setSummaryAfb->SaveAs(TString::Format("%s/h_setSummaryAfb.cc",owspacepath.Data()));
+-    h_setSummaryFh->Draw();
+-    h_setSummaryFh->SaveAs(TString::Format("%s/h_setSummaryFh.cc",owspacepath.Data()));
+-    fout->Write();
+-    fout->Close();
+-    return;
+ 
+-}//}}}
+ 
+ 
+ 
+@@ -3920,15 +3874,10 @@
+         //genToySignal(iBin, nsig*100, -0.30,0.80); // v2
+         genToySignal(iBin, nsig*100, afb,fh); // 
+         genToyCombBkg(iBin,nbkgComb*100);
+-    } else if (func == "createValiToys"){
+-        nToy = 100;
+-        createValiToys(iBin,nToy);
+-    }else if (func == "ValiScan"){
+-        nToy = 100;
+-        int whichBin=-1;
+-        whichBin=iBin;
+-        harvestValiFitResults(whichBin,nToy);
+-    } else if (func == "createFCToys"){
++   } else if (func == "createValiToys"){
++      nToy = 100;
++      createValiToys(iBin,nToy);
++   } else if (func == "createFCToys"){
+       createFCToys(iBin,nToy);
+     }else if (func == "FCScan"){
+         int whichBin=-1;
+@@ -3936,7 +3885,7 @@
+         harvestFCFitResults(whichBin,nToy);
+         cout<<"----------------"<<endl;
+         getFCInterval(whichBin,nToy);
+-    }
++   }
+ /////////////////////////////////////////////////////////////////////////////////////////////
+ 	 else if (func == "test"){
+         ch->Add(infile.Data());
